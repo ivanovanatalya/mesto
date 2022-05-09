@@ -1,5 +1,8 @@
 .footer {
   color: #545454;
   max-width: 800px;
-  padding: 0 200px 60px;
+  margin: 0 auto;
+  padding: 67px 0 60px;
+  font-size: 18px;
+  line-height: 1.22;
 }
