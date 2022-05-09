@@ -1,0 +1,13 @@
+.profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 880px;
+  max-height: 120px;
+  padding: 40px 200px 0; 
+}
+
+.profile:nth-child(3) {
+  justify-content: flex-end;
+}
