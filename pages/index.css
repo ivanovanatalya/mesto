@@ -23,4 +23,14 @@
 @import url(../blocks/element/__photo/element__photo.css);
 @import url(../blocks/element/__title/element__title.css);
 @import url(../blocks/element/__like/element__like.css);
+
+/*popup, form*/
+@import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/__close/popup__close.css);
+@import url(../blocks/popup/__container/popup__container.css);
+
+@import url(../blocks/popup/__input/form__input.css);
+@import url(../blocks/form/__title/form__title.css);
+@import url(../blocks/form/__submit/form__submit.css);
+
 @import url(../blocks/footer/footer.css);
