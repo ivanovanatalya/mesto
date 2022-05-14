@@ -8,7 +8,7 @@
 </head>
 <body class="page">
   <header class="header">
-    <img src="images/logo.svg" alt="логотип сайта Mesto" class="header__logo">
+    <span class="header__logo"></span>
     <hr class="header__line">
   </header>
   <main class="content">
@@ -21,7 +21,6 @@
       </div>
       <button type="button" class="profile__button-add"></button>
     </section>
-
     <section class="elements">
       <ul class="element">
         <li class="element__item">
@@ -69,10 +68,8 @@
       </ul>
     </section>
   </main>
-  <footer class="footer">
-    <p>&copy 2022 Mesto Russia</p>
+  <footer lang="en" class="footer"><p>&copy; 2022 Mesto Russia</p>
   </footer>
-  
   <!--попап редактирования профиля-->
   <div class="popup">
     <div class="popup__container">
@@ -81,7 +78,7 @@
         <h2 class="form__title">Редактировать профиль</h2>
         <input type="text" value="Жак-Ив Кусто" placeholder="Ваше имя" class="form__input form__input_name" name="profile_name">
         <input type="text" value="Исследователь океана" placeholder="Чем занимаетесь?" class="form__input form__input_name">
-        <button type="sumit" class="form__submit">Сохранить</button>
+        <button type="submit" class="form__submit">Сохранить</button>
       </form>
     </div>
   </div>

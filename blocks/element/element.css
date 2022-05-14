@@ -7,15 +7,16 @@
   margin: 51px 0 0;
   line-height: 0;
 }
-@media screen and (max-width: 600px) {
-  .element {
-    grid-template-columns: minmax(282px, 1fr);
-  }
-  
-}
 
 @media screen and (max-width: 800px) {
   .element {
     grid-template-columns: repeat(2, calc(50% - 17px / 2) );
   }
+}
+
+@media screen and (max-width: 600px) {
+  .element {
+    grid-template-columns: minmax(282px, 1fr);
+  }
+  
 }
