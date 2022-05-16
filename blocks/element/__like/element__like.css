@@ -7,6 +7,7 @@
   font-size: 0; /* Скрываем текст */
   border: none;
   cursor: pointer;
+  
 }
 
 .element__like:hover {
