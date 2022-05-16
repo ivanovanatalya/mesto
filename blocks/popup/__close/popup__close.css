@@ -5,10 +5,10 @@
   height: 40px;
   width: 40px;
   background: url('../../../images/popap__close.svg') center no-repeat;
-  font-size: 0; /* Скрываем текст */
+  font-size: 0;
   border: none;
   cursor: pointer;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity .3s ease-in-out;
 }
 
 .popup__close:hover {
@@ -19,6 +19,6 @@
   .popup__close {
     top: -60px;
     right: 0px;
-    zoom: 0.65;
+    zoom: .65;
   }
 }

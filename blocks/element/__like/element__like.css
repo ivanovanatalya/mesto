@@ -1,13 +1,11 @@
 .element__like {
-  transition: opacity .3s ease-in-out;
   margin-right: 21px;
   width: 26px;
   height: 19px;
   background: url('../../../images/element_like.svg') center no-repeat;
-  font-size: 0; /* Скрываем текст */
   border: none;
   cursor: pointer;
-  
+  transition: opacity .3s ease-in-out;
 }
 
 .element__like:hover {

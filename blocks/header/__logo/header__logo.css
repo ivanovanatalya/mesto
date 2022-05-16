@@ -1,9 +1,9 @@
 .header__logo {
+  display: block;
   background: url(../../../images/logo.svg) no-repeat;
   max-width: 142px;
   max-height: 33px;
   padding-bottom: 41px;
-  display: block;
 }
 
 .header__logo:hover {

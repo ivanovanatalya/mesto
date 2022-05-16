@@ -6,9 +6,9 @@
   width: 150px;
   height: 50px;
   justify-content: center;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity .3s ease-in-out;
   background: #000000 url('../../../images/button_add.svg') center no-repeat;
-  font-size: 0; /* Скрываем текст */
+  font-size: 0;
   cursor: pointer;
 }
 

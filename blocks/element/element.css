@@ -3,12 +3,12 @@
   grid-template-columns: repeat(3, 282px);
   gap: 20px 17px;
   list-style: none;
-  padding: 0;
   margin: 51px 0 0;
+  padding: 0;
   line-height: 0;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .element {
     grid-template-columns: repeat(2, calc(50% - 17px / 2) );
   }
@@ -18,5 +18,4 @@
   .element {
     grid-template-columns: minmax(282px, 1fr);
   }
-  
 }
