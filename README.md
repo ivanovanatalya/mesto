@@ -16,4 +16,4 @@
 * рефакторинг кода,
 * добавление логики на JavaScript для интерактивной страницы, куда можно добавлять фотографии, удалять их и ставить лайки.
 
-Проект доступен по [ссылке](https://ivanovanatalya.github.io/russian-travel/index.html).
+Проект доступен по [ссылке](https://ivanovanatalya.github.io/mesto/index.html).

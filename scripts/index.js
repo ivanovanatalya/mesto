@@ -1,15 +1,15 @@
 // Кнопки "Закрыть", "Редактировать" //
-let closeButton = document.querySelector('.popup__close');
-let editButton = document.querySelector('.profile__button-edit');
+const closeButton = document.querySelector('.popup__close');
+const editButton = document.querySelector('.profile__button-edit');
 // Попап //
-let popup = document.querySelector('.popup');
+const popup = document.querySelector('.popup');
 // Форма //
-let formElement = document.querySelector('.form');
+const formElement = document.querySelector('.form');
 // поля формы //
-let nameInput = document.querySelector('.form__input_name');
-let descriptionInput = document.querySelector('.form__input_description');
-let profileName = document.querySelector('.profile__name');
-let profileDescription = document.querySelector('.profile__description');
+const nameInput = document.querySelector('.form__input_name');
+const descriptionInput = document.querySelector('.form__input_description');
+const profileName = document.querySelector('.profile__name');
+const profileDescription = document.querySelector('.profile__description');
 
 function formSubmitHandler (evt) {
   evt.preventDefault();
