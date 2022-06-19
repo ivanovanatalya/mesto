@@ -1,17 +1,30 @@
 .profile__name {
   font-style: normal;
-  font-size: 42px;
+  font-size: 41px;
   font-weight: 500;
   line-height: 48px;
   margin: 0;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  margin-left: -1px;
+  margin-top: -4px;
 }
 
-@media screen and (min-width: 660px) {
+/*подключаются стили на 1280?*/
+
+@media screen and (max-width: 660px) {
   .profile__name {
     font-size: 27px;
     line-height: 33px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile__name {
+    font-size: 26px;
+    line-height: 33px;
+    margin-top: -3px;
+    margin-left: -19px;
   }
 }

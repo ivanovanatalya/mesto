@@ -1,6 +1,7 @@
 .header__logo {
   display: block;
   background: url(../../../images/logo.svg) no-repeat;
+  background-size: 142px 33px;
   max-width: 142px;
   max-height: 33px;
   padding-bottom: 41px;
@@ -8,4 +9,11 @@
 
 .header__logo:hover {
   background: url('../../../images/logo_click.svg');
+}
+
+@media screen and (max-width:320px) {
+  .header__logo {
+    background-size: 104px 25px;
+  }
+
 }

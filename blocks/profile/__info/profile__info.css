@@ -8,11 +8,20 @@
   position: relative;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 660px) {
   .profile__info {
     grid-template-columns: 1fr min-content;
     margin: 26px 0 36px;
     row-gap: 14px;
     text-align: center;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile__info{
+    width: 282px;
+    margin-top: 28px;
+    margin-left: 45px;
+
   }
 }

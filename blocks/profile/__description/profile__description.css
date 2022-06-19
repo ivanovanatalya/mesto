@@ -5,11 +5,23 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    margin-top: -9px;
+
   }
-  
+
   @media screen and (max-width: 600px) {
-    .profile__job {
+    .profile__description {
       font-size: 14px;
       line-height: 17px;
     }
   }
+
+  @media screen and (max-width: 320px) {
+    .profile__description {
+      font-size: 14px;
+      line-height: 17px;
+      margin-top: -6px;
+      margin-left: -18px;
+    }
+  }
+
