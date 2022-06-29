@@ -6,8 +6,8 @@ const popup = document.querySelector('.popup');
 // Форма //
 const formElement = document.querySelector('.form');
 // поля формы //
-const nameInput = document.querySelector('.form__input_type-name');
-const descriptionInput = document.querySelector('.form__input_type-description');
+const nameInput = document.querySelector('.form__input_type_name');
+const descriptionInput = document.querySelector('.form__input_type_description');
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
 
