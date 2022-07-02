@@ -8,7 +8,6 @@
   width: 100%;
   box-sizing: border-box;
   position: relative;
-  margin-bottom: 338px;
   margin-left: 10px;
 }
 
@@ -16,6 +15,5 @@
   .popup__container {
     width: 282px;
     padding: 25px 22px;
-    margin-bottom: 490px;
   }
 }
