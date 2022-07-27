@@ -8,8 +8,7 @@
 </head>
 <body class="page">
   <header class="header">
-    <span class="header__logo"></span>
-    <hr class="header__line">
+    <a href = " " class="header__logo"></a>
   </header>
   <main class="content">
     <section class="profile">
@@ -17,71 +16,67 @@
       <div class="profile__info">
         <h1 class="profile__name" >Жак-Ив Кусто</h1>
         <p class="profile__description">Исследователь океана</p>
-        <button type="button" class="profile__button-edit">Редактировать</button>
+        <button type="button" class="profile__button-edit" aria-label="кнопка Редактировать">Редактировать</button>
       </div>
-      <button type="button" class="profile__button-add">Добавить фотографию</button>
+
+      <button type="button" class="profile__button-add" aria-label="кнопка Добавить">Добавить фотографию</button>
+
     </section>
-    <section class="elements">
-      <ul class="element">
-        <li class="element__item">
-          <img src="./images/kirill-pershin-1088404-unsplash.png" alt="фотография Карачаевска" class="element__photo">
-          <div class="element__item-description">
-            <h2 class="element__title">Карачаевск</h2>
-            <button type="button" class="element__like"></button>
-          </div>
-        </li>
-        <li class="element__item">
-          <img src="./images/kirill-pershin-1404681-unsplash.png" alt="фотография Горы Эльбрус" class="element__photo">
-          <div class="element__item-description">
-            <h2 class="element__title">Гора Эльбрус</h2>
-            <button type="button" class="element__like"></button>
-          </div>
-        </li>
-        <li class="element__item">
-          <img src="./images/kirill-pershin-1556355-unsplash.png" alt="фотография Домбая" class="element__photo">
-          <div class="element__item-description">
-            <h2 class="element__title">Домбай</h2>
-            <button type="button" class="element__like"></button>
-          </div>
-        </li>
-        <li class="element__item">
-          <img src="./images/kirill-pershin-1404681-unsplash.png" alt="фотография Горы Эльбрус" class="element__photo">
-          <div class="element__item-description">
-            <h2 class="element__title">Гора Эльбрус</h2>
-            <button type="button" class="element__like"></button>
-          </div>
-        </li>
-        <li class="element__item">
-          <img src="./images/kirill-pershin-1556355-unsplash.png" alt="фотография Домбая" class="element__photo">
-          <div class="element__item-description">
-            <h2 class="element__title">Домбай</h2>
-            <button type="button" class="element__like"></button>
-          </div>
-        </li>
-        <li class="element__item">
-          <img src="./images/kirill-pershin-1088404-unsplash.png" alt="фотография Карачаевска" class="element__photo">
-          <div class="element__item-description">
-            <h2 class="element__title">Карачаево-Черкесия</h2>
-            <button type="button" class="element__like"></button>
-          </div>
-        </li>
+   <section class="elements">
+      <ul class="photo-grid">
+        
       </ul>
     </section>
   </main>
-  <footer lang="en" class="footer"><p>&copy; 2022 Mesto Russia</p>
+  <footer lang="en" class="footer"><p class="footer__author">&copy; 2022 Mesto Russia</p>
   </footer>
+
   <!--попап редактирования профиля-->
-  <div class="popup">
+  <div class="popup popup_type_profile">
     <div class="popup__container">
-      <button type="button" class="popup__close">Закрыть</button>
+      <button type="button" class="popup__close" aria-label="кнопка Закрыть">Закрыть</button>
       <form action="/" method="post" name="edit-profile" class="form">
         <h2 class="form__title">Редактировать профиль</h2>
-        <input type="text" value="Жак-Ив Кусто" placeholder="Ваше имя" class="form__input form__input_name" name="profile_name">
-        <input type="text" value="Исследователь океана" placeholder="Чем занимаетесь?" class="form__input form__input_description">
-        <button type="submit" class="form__submit">Сохранить</button>
+        <input type="text" placeholder="Ваше имя" class="form__input form__input_type_name" name="profile_name">
+        <input type="text" placeholder="Чем занимаетесь?" class="form__input form__input_type_description">
+        <button type="submit" class="form__submit" aria-label="кнопка Сохранить">Сохранить</button>
       </form>
     </div>
   </div>
+
+  <!--попап добавление фото-->
+  <div class="popup popup_type_photo">
+    <div class="popup__container">
+      <button type="button" class="popup__close" aria-label="кнопка Закрыть">Закрыть</button>
+      <form action="/" method="post" name="addphoto" class="form form_type_photo">
+        <h2 class="form__title">Новое место</h2>
+        <input type="text" placeholder="Название" class="form__input form__input_type_title">
+        <input type="text" placeholder="Ссылка на картинку" class="form__input form__input_type_src" name="photolink">
+        <button type="submit" class="form__submit" id="createPhoto">Создать</button>
+      </form>
+    </div>
+  </div>
+  
+  <!--модальное окно карточки-->
+  <div class="popup popup_type_modal">
+    <div class="popup__container">
+      <button class="popup__close" type="button">Закрыть</button>
+      <img class="popup__pic" alt="Фото" src="./images/logo.svg">
+      <h2 class="popup__pic-caption">Фото</h2>
+    </div>
+  </div>
+
+  <template id="photo-grid-template" class="photo-grid-template">
+    <li class="photo-grid__item">
+      <button type="button" class="photo-grid__delete">Удалить</button>
+      <img src="" alt="" class="photo-grid__pic">
+      <div class="photo-grid__item-description">
+        <h2 class="photo-grid__title"></h2>
+        <button type="button" class="photo-grid__like">Нравится</button>
+      </div>
+    </li>
+  </template>
+  <script src="./scripts/initial-cards.js"></script>
   <script src="./scripts/script.js"></script>
 </body>
 </html>
