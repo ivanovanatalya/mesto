@@ -34,7 +34,7 @@
   <!--попап редактирования профиля-->
   <div class="popup popup_type_profile">
     <div class="popup__container">
-      <button type="button" class="popup__close" aria-label="кнопка Закрыть">Закрыть</button>
+      <button type="button" class="popup__close" aria-label="кнопка Закрыть" id="profileClose">Закрыть</button>
       <form action="/" method="post" name="edit-profile" class="form">
         <h2 class="form__title">Редактировать профиль</h2>
         <input type="text" placeholder="Ваше имя" class="form__input form__input_type_name" name="profile_name">
@@ -47,7 +47,7 @@
   <!--попап добавление фото-->
   <div class="popup popup_type_photo">
     <div class="popup__container">
-      <button type="button" class="popup__close" aria-label="кнопка Закрыть">Закрыть</button>
+      <button type="button" class="popup__close" aria-label="кнопка Закрыть" id="popupPhotoClose">Закрыть</button>
       <form action="/" method="post" name="addphoto" class="form form_type_photo">
         <h2 class="form__title">Новое место</h2>
         <input type="text" placeholder="Название" class="form__input form__input_type_title">
@@ -56,11 +56,11 @@
       </form>
     </div>
   </div>
-  
+
   <!--модальное окно карточки-->
   <div class="popup popup_type_modal">
     <div class="popup__container">
-      <button class="popup__close" type="button">Закрыть</button>
+      <button class="popup__close" type="button" id="modalClose">Закрыть</button>
       <img class="popup__pic" alt="Фото" src="./images/logo.svg">
       <h2 class="popup__pic-caption">Фото</h2>
     </div>

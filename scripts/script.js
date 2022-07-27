@@ -1,6 +1,7 @@
-// Кнопки "Закрыть", "Редактировать" //
-const closeButton = document.querySelector('.popup__close');
+// button
+const closeButton = document.querySelector('#profileClose');
 const editButton = document.querySelector('.profile__button-edit');
+const addButton = document.querySelector('.profile__button-add');
 // photo-grid
 const photoContainer = document.querySelector('.photo-grid');
 const photoTemplate = document.querySelector('#photo-grid-template');
@@ -8,31 +9,25 @@ const photoTemplate = document.querySelector('#photo-grid-template');
 const popup = document.querySelector('.popup');
 const popupProfile = document.querySelector('.popup_type_profile');
 const popupPhoto = document.querySelector('.popup_type_photo');
-const closeProfileButton = popupProfile.querySelector('.popup__close');
-
-// form
+const closePopupPhoto = document.querySelector('#popupPhotoClose');
+// form profile
 const formElement = document.querySelector('.form');
 const nameInput = document.querySelector('.form__input_type_name');
 const descriptionInput = document.querySelector('.form__input_type_description');
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
-
 // photo
 const formPhoto = document.querySelector('.form_type_photo');
 const photoTitleInput = document.querySelector('.form__input_type_title');
 const photoLinkInput = document.querySelector('.form__input_type_src');
-
+const photoShow = document.querySelector('#createPhoto');
+//modal
 const popupModal = document.querySelector('.popup_type_modal');
-const modalClose = popupModal.querySelector('.popup__close');
 const modalSrc = popupModal.querySelector('.popup__pic');
 const modalTitle = popupModal.querySelector('.popup__pic-caption');
-const addButton = document.querySelector('.profile__button-add');
+const closeModal = document.querySelector('#modalClose');
 
-const photoShow = document.querySelector('#createPhoto');
-const closePopupPhoto = document.querySelector('.popup__close');
-const closeModal = document.querySelector('.popup__close');
-
-//форма добавления фото
+//form add photo
 function photoSubmitHandler (evt) {
   evt.preventDefault();
   photoContainer.prepend(addPhoto(photoTitleInput.value, photoLinkInput.value));
@@ -66,7 +61,6 @@ function addPhoto(name, link) {
     modalTitle.textContent = name;
     modalSrc.alt = name;
     modalSrc.src = link;
-    modalClose();
   }
 
   deleteButton.addEventListener('click', handleDeletePhoto);
@@ -82,23 +76,24 @@ initialCards.forEach(function(item) {
   photoContainer.append(newCard);
 });
 
-
-//pr5
+//add form profile
 function formSubmitHandler (evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileDescription.textContent = descriptionInput.value;
   popupClose();
 }
+
 function popupOpen() {
   popup.classList.add('popup_opened');
   nameInput.value = profileName.textContent;
   descriptionInput.value = profileDescription.textContent;
 }
+
 function popupClose() {
   popup.classList.remove('popup_opened');
 }
-//pr5
+
 function popupPhotoShow() {
   popupPhoto.classList.add('popup_type_photo_visible');
 }
@@ -106,25 +101,18 @@ function popupPhotoShow() {
 function popupPhotoClose() {
   popupPhoto.classList.remove('popup_type_photo_visible');
 }
-// function modalClose() {
-  // popupModal.classList.remove('popup_type_modal_add');
-// }
 
-initialCards.forEach(function(item) {
-  const newCard = addPhoto(item['name'], item['link']);
-  photoContainer.append(newCard);
-});
-
+function modalClose() {
+  popupModal.classList.remove('popup_type_modal_add');
+}
 
 formElement.addEventListener('submit', formSubmitHandler);
 closeButton.addEventListener('click', popupClose);
 editButton.addEventListener('click', popupOpen);
 
-
 formPhoto.addEventListener('submit', photoSubmitHandler);
 photoShow.addEventListener('click', addPhoto);
 addButton.addEventListener('click', popupPhotoShow);
 
-closePopupPhoto.addEventListener('click', popupPhotoClose (popupProfile)); // закрыть попап
-// closeModal.addEventListener('click',  modalClose());
-
+closePopupPhoto.addEventListener('click', popupPhotoClose);
+closeModal.addEventListener('click', modalClose);
