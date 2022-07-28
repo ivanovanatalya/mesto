@@ -5,7 +5,7 @@
   list-style: none;
   padding: 0;
   margin: 51px 0 0;
-  line-height: 0; /* deleting white space between photo and title */
+  line-height: 0;
 }
 
 @media screen and (max-width: 880px) {

@@ -3,7 +3,7 @@
   width: 18px;
   height: 20px;
   background: url('../../../images/photo-grid__delete.svg') center no-repeat;
-  font-size: 0; /* Скрываем текст */
+  font-size: 0;
   border: none;
   cursor: pointer;
   position: absolute;
