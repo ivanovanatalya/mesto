@@ -104,6 +104,7 @@ function modalClose() {
   popupModal.classList.remove('popup_type_modal_add');
 }
 
+//слушатели
 formElement.addEventListener('submit', formSubmitHandler);
 closeButton.addEventListener('click', popupClose);
 editButton.addEventListener('click', popupOpen);
