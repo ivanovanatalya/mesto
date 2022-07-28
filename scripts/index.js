@@ -34,7 +34,6 @@ function photoSubmitHandler (evt) {
   photoLinkInput.value = ''; // очищаем поля
   popupClose(popupPhoto);
 }
-
 // add photo
 function addPhoto(name, link) {
   function handleDeletePhoto(evt) {
@@ -112,6 +111,6 @@ editButton.addEventListener('click', popupOpen);
 formPhoto.addEventListener('submit', photoSubmitHandler);
 photoShow.addEventListener('click', addPhoto);
 addButton.addEventListener('click', popupPhotoShow);
-
 closePopupPhoto.addEventListener('click', popupPhotoClose);
+
 closeModal.addEventListener('click', modalClose);
