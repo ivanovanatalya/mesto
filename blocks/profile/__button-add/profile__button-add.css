@@ -10,14 +10,25 @@
   background: #000000 url('../../../images/button_add.svg') center no-repeat;
   font-size: 0;
   cursor: pointer;
+  margin-top: -7px;
+  margin-right: -9px;
 }
 
 .profile__button-add:hover {
   opacity: .6;
 }
 
-@media screen and (max-width: 425px) {
-  .profile__add-button {
-    width: 100%;
+@media screen and (max-width: 910px) {
+  .profile__button-add {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile__button-add {
+    width: 282px;
+    margin-left: 8px;
+    margin-top: -4px;
+    background: #000000 url('../../../images/Add\ Button_320px.png') center no-repeat;
   }
 }

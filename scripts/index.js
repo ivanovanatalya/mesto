@@ -1,3 +1,4 @@
+<<<<<<< HEAD:scripts/script.js
 // button
 const closeButton = document.querySelector('#profileClose');
 const editButton = document.querySelector('.profile__button-edit');
@@ -12,10 +13,21 @@ const popupPhoto = document.querySelector('.popup_type_photo');
 const closePopupPhoto = document.querySelector('#popupPhotoClose');
 // form profile
 const formElement = document.querySelector('.form');
+=======
+// Кнопки "Закрыть", "Редактировать" //
+const closeButton = document.querySelector('.popup__close');
+const editButton = document.querySelector('.profile__button-edit');
+// Попап //
+const popup = document.querySelector('.popup');
+// Форма //
+const formElement = document.querySelector('.form');
+// поля формы //
+>>>>>>> main:scripts/index.js
 const nameInput = document.querySelector('.form__input_type_name');
 const descriptionInput = document.querySelector('.form__input_type_description');
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
+<<<<<<< HEAD:scripts/script.js
 // photo
 const formPhoto = document.querySelector('.form_type_photo');
 const photoTitleInput = document.querySelector('.form__input_type_title');
@@ -26,6 +38,8 @@ const popupModal = document.querySelector('.popup_type_modal');
 const modalSrc = popupModal.querySelector('.popup__pic');
 const modalTitle = popupModal.querySelector('.popup__pic-caption');
 const closeModal = document.querySelector('#modalClose');
+=======
+>>>>>>> main:scripts/index.js
 
 //form add photo
 function photoSubmitHandler (evt) {
@@ -109,6 +123,7 @@ function modalClose() {
 formElement.addEventListener('submit', formSubmitHandler);
 closeButton.addEventListener('click', popupClose);
 editButton.addEventListener('click', popupOpen);
+<<<<<<< HEAD:scripts/script.js
 
 formPhoto.addEventListener('submit', photoSubmitHandler);
 photoShow.addEventListener('click', addPhoto);
@@ -116,3 +131,5 @@ addButton.addEventListener('click', popupPhotoShow);
 
 closePopupPhoto.addEventListener('click', popupPhotoClose);
 closeModal.addEventListener('click', modalClose);
+=======
+>>>>>>> main:scripts/index.js

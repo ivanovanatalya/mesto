@@ -3,7 +3,6 @@
 @import url(../blocks/page/page.css);
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
-@import url(../blocks/header/__line/header__line.css);
 @import url(../blocks/content/content.css);
 
 /*profile*/
@@ -49,3 +48,4 @@
 @import url(../blocks/photo-grid/__like/_active/photo-grid__like_active.css);
 
 @import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__author/footer__author.css);

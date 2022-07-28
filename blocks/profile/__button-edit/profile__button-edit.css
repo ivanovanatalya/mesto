@@ -11,8 +11,18 @@
   background: #000000 url('../../../images/button_edit.svg') center no-repeat;
   font-size: 0;
   cursor: pointer;
+  margin-left: 3px;
 }
 
 .profile__button-edit:hover {
   opacity: .6;
+}
+
+@media screen and (max-width: 320px) {
+  .profile__button-edit {
+    width: 18px;
+    height: 18px;
+    margin-left: -34px;
+    margin-top: -3px;
+  }
 }
