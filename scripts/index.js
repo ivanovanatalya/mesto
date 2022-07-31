@@ -6,7 +6,6 @@ const addButton = document.querySelector('.profile__button-add');
 const photoContainer = document.querySelector('.photo-grid');
 const photoTemplate = document.querySelector('#photo-grid-template');
 // popup
-
 const popupProfile = document.querySelector('.popup_type_profile');
 const popupPhoto = document.querySelector('.popup_type_photo');
 const closePhoto = document.querySelector('#popupPhotoClose');
@@ -56,7 +55,6 @@ function addPhoto(name, link) {
   photoSrc.src = link;
 
   function handleModal() {
-    // popupModal.classList.add('popup_type_modal_add');
     openPopup(popupModal);
     modalTitle.textContent = name;
     modalSrc.alt = name;
@@ -66,7 +64,6 @@ function addPhoto(name, link) {
   deleteButton.addEventListener('click', handleDeletePhoto);
   likeButton.addEventListener('click', handleLike);
   photoSrc.addEventListener('click', handleModal);
-
 
   return newPhoto;
 }
@@ -84,16 +81,6 @@ function handlerFormSubmit (evt) {
   closePopup();
 }
 
-//  Почему отрабатывает nameInput.value = profileName.textContent?
-// function openPopup() {
-//   popupProfile.classList.add('popup_opened');
-//   nameInput.value = profileName.textContent;
-//   descriptionInput.value = profileDescription.textContent;
-// }
-// function showPopupPhoto() {
-//   popupPhoto.classList.add('popup_type_photo_visible');
-// }
-
 function openPopup(popupName) {
   popupName.classList.add('popup_opened');
 }
@@ -101,31 +88,14 @@ function closePopup(popupName) {
   popupName.classList.remove('popup_opened');
 }
 
-// function closePopup() {
-//   popupProfile.classList.remove('popup_opened');
-// }
-// function closePopupPhoto() {
-//   popupPhoto.classList.remove('popup_type_photo_visible');
-// }
-function closeModal() {
-  popupModal.classList.remove('popup_type_modal_add');
-}
-
-//слушатели
+//event listeners
 formElement.addEventListener('submit', handlerFormSubmit);
-// closeButton.addEventListener('click', closePopup);
 closeButton.addEventListener('click', () => { closePopup(popupProfile); });
-
-// editButton.addEventListener('click', openPopup);
 editButton.addEventListener('click', () => { openPopup(popupProfile); });
-// addButton.addEventListener('click', showPopupPhoto);
 addButton.addEventListener('click', () => { openPopup(popupPhoto); });
 
 formPhoto.addEventListener('submit', handlePhotoFormSubmit);
 showPhoto.addEventListener('click', addPhoto);
 
-// closePhoto.addEventListener('click', closePopupPhoto);
 closePhoto.addEventListener('click', () => { closePopup(popupPhoto); });
-
-// closeModalPhoto.addEventListener('click', closeModal);
 closeModalPhoto.addEventListener('click', () => { closePopup(popupModal); });
