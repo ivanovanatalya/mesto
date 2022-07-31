@@ -6,7 +6,7 @@ const addButton = document.querySelector('.profile__button-add');
 const photoContainer = document.querySelector('.photo-grid');
 const photoTemplate = document.querySelector('#photo-grid-template');
 // popup
-// const popup = document.querySelector('.popup'); удалить
+
 const popupProfile = document.querySelector('.popup_type_profile');
 const popupPhoto = document.querySelector('.popup_type_photo');
 const closePhoto = document.querySelector('#popupPhotoClose');
@@ -56,7 +56,8 @@ function addPhoto(name, link) {
   photoSrc.src = link;
 
   function handleModal() {
-    popupModal.classList.add('popup_type_modal_add');
+    // popupModal.classList.add('popup_type_modal_add');
+    openPopup(popupModal);
     modalTitle.textContent = name;
     modalSrc.alt = name;
     modalSrc.src = link;
@@ -65,6 +66,7 @@ function addPhoto(name, link) {
   deleteButton.addEventListener('click', handleDeletePhoto);
   likeButton.addEventListener('click', handleLike);
   photoSrc.addEventListener('click', handleModal);
+
 
   return newPhoto;
 }
