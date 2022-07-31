@@ -78,9 +78,13 @@ function handlerFormSubmit (evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileDescription.textContent = descriptionInput.value;
-  closePopup();
+  closePopup(popupProfile);
 }
-
+function editProfile() {
+  popupProfile.classList.add('popup_opened');
+  nameInput.value = profileName.textContent;
+  descriptionInput.value = profileDescription.textContent;
+}
 function openPopup(popupName) {
   popupName.classList.add('popup_opened');
 }
@@ -91,7 +95,8 @@ function closePopup(popupName) {
 //event listeners
 formElement.addEventListener('submit', handlerFormSubmit);
 closeButton.addEventListener('click', () => { closePopup(popupProfile); });
-editButton.addEventListener('click', () => { openPopup(popupProfile); });
+editButton.addEventListener('click', editProfile);
+
 addButton.addEventListener('click', () => { openPopup(popupPhoto); });
 
 formPhoto.addEventListener('submit', handlePhotoFormSubmit);
