@@ -30,8 +30,8 @@ const closeModalPhoto = document.querySelector('#modalClose');
 function handlePhotoFormSubmit (evt) {
   evt.preventDefault();
   photoContainer.prepend(addPhoto(photoTitleInput.value, photoLinkInput.value));
-  photoTitleInput.value = ''; // очищаем поля
-  photoLinkInput.value = ''; // очищаем поля
+  photoTitleInput.value = '';
+  photoLinkInput.value = '';
   closePopup(popupPhoto);
 }
 // add photo
