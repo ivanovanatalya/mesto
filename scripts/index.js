@@ -88,10 +88,12 @@ function editProfile() {
 function openPopup(popupName) {
   popupName.classList.add('popup_opened');
   document.addEventListener('keydown', handlePressEsc);
+  document.addEventListener('mousedown', handleClickOverlay);
 }
 function closePopup(popupName) {
   popupName.classList.remove('popup_opened');
   document.addEventListener('keydown', handlePressEsc);
+  document.addEventListener('mousedown', handleClickOverlay);
 }
 function handlePressEsc(evt) {
   const activePopup = document.querySelector('.popup_opened');
@@ -99,6 +101,14 @@ function handlePressEsc(evt) {
     closePopup(activePopup);
   }
 }
+
+function handleClickOverlay(evt) {
+  const activePopup = document.querySelector('.popup_opened');
+  if (activePopup && evt.target === activePopup) {
+    closePopup(activePopup);
+  }
+}
+
 
 //event listeners
 formElement.addEventListener('submit', handlerFormSubmit);
