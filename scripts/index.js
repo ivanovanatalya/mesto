@@ -81,7 +81,7 @@ function handlerFormSubmit (evt) {
   closePopup(popupProfile);
 }
 function editProfile() {
-  popupProfile.classList.add('popup_opened');
+  openPopup(popupProfile);
   nameInput.value = profileName.textContent;
   descriptionInput.value = profileDescription.textContent;
 }
