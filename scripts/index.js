@@ -87,9 +87,17 @@ function editProfile() {
 }
 function openPopup(popupName) {
   popupName.classList.add('popup_opened');
+  document.addEventListener('keydown', handlePressEsc);
 }
 function closePopup(popupName) {
   popupName.classList.remove('popup_opened');
+  document.addEventListener('keydown', handlePressEsc);
+}
+function handlePressEsc(evt) {
+  const activePopup = document.querySelector('.popup_opened');
+  if (activePopup && evt.key === 'Escape') {
+    closePopup(activePopup);
+  }
 }
 
 //event listeners
