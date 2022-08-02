@@ -7,3 +7,7 @@
   padding-bottom: 9px;
   margin-bottom: 30px;
 }
+
+.form__input:invalid {
+  border-bottom: 1px solid red;
+}

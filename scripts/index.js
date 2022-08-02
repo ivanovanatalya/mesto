@@ -109,6 +109,68 @@ function handleClickOverlay(evt) {
   }
 }
 
+const toggleButtonState = (inputList, buttonElement) => {
+  if (isValid(inputList)) {                    // 13. Вызываем функцию hasInvalidInput с передачей в нее массива полей ввода группы полей. Анализируем возвращенное функцией значение
+    buttonElement.classList.add('form__submit_disabled'); // В ПР нужно добавить атрибут disabled
+  } else {
+    buttonElement.classList.remove('form__submit_disabled ');
+  }
+  };
+
+const setEventListeners = (formElement) => {
+  const inputList = Array.from(formElement.querySelectorAll('.form_input'));
+  toggleButtonState(inputList, buttonElement);
+  inputList.forEach((inputElement) => {
+    // каждому полю добавим обработчик события input
+    inputElement.addEventListener('input', () => {
+      // Внутри колбэка вызовем isValid,
+      // передав ей форму и проверяемый элемент
+      isValid(formElement, inputElement)
+    });
+  });
+}
+
+  const isValid = (formElement, inputElement) => {
+    if(!inputElement.validity.valid) {
+      showInputError(formElement, inputElement, inputElement.validationMessage);
+  } else {
+    hideInputError(formElement, inputElement);
+    // button.disabled = false
+    }
+  }
+  const enableValidation = () => {
+    // Найдём все формы с указанным классом в DOM,
+    // сделаем из них массив методом Array.from
+    const formList = Array.from(document.querySelectorAll('.form'));
+    // Переберём полученную коллекцию
+    formList.forEach((formElement) => {
+      formElement.addEventListener('submit', (evt) => {
+        // У каждой формы отменим стандартное поведение
+        evt.preventDefault();
+      });
+      // Для каждой формы вызовем функцию setEventListeners,
+      // передав ей элемент формы
+      setEventListeners(formElement);
+    });
+  };
+  // Вызовем функцию
+  enableValidation();
+
+  const showInputError = (formElement, inputElement, errorMessage) => {
+    const errorElement = formElement.querySelector('.form__input_error');
+    inputElement.classList.add('form__input_error');
+    errorElement.textContent = errorMessage;
+    // errorElement.classList.add('form__input-error_active');
+  };
+
+  const hideInputError = (formElement, inputElement) => {
+    // const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+    inputElement.classList.remove('form__input_error');
+    // errorElement.classList.remove('form__input-error_active');
+    // errorElement.textContent = '';
+  };
+
+
 
 //event listeners
 formElement.addEventListener('submit', handlerFormSubmit);
