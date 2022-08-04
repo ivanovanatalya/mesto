@@ -1,14 +1,14 @@
 // button
-const closeButton = document.querySelector('#profileClose');
-const editButton = document.querySelector('.profile__button-edit');
-const addButton = document.querySelector('.profile__button-add');
+const buttonClose = document.querySelector('#profileClose');
+const buttonEdit = document.querySelector('.profile__button-edit');
+const buttonAdd = document.querySelector('.profile__button-add');
 // photo-grid
 const photoContainer = document.querySelector('.photo-grid');
 const photoTemplate = document.querySelector('#photo-grid-template');
 // popup
 const popupProfile = document.querySelector('.popup_type_profile');
 const popupPhoto = document.querySelector('.popup_type_photo');
-const closePhoto = document.querySelector('#popupPhotoClose');
+const photoClose = document.querySelector('#popupPhotoClose');
 // form profile
 const formElement = document.querySelector('.form');
 const nameInput = document.querySelector('.form__input_type_name');
@@ -19,12 +19,12 @@ const profileDescription = document.querySelector('.profile__description');
 const formPhoto = document.querySelector('.form_type_photo');
 const photoTitleInput = document.querySelector('.form__input_type_title');
 const photoLinkInput = document.querySelector('.form__input_type_src');
-const showPhoto = document.querySelector('#createPhoto');
+const photoShow = document.querySelector('#createPhoto');
 //modal
 const popupModal = document.querySelector('.popup_type_modal');
 const modalSrc = popupModal.querySelector('.popup__pic');
 const modalTitle = popupModal.querySelector('.popup__pic-caption');
-const closeModalPhoto = document.querySelector('#modalClose');
+const modalPhotoClose = document.querySelector('#modalClose');
 
 //form add photo
 function handlePhotoFormSubmit(evt) {
@@ -47,8 +47,8 @@ function addPhoto(name, link) {
   const newPhoto = photoTemplate.content.querySelector('.photo-grid__item').cloneNode(true);
   const photoSrc = newPhoto.querySelector('.photo-grid__pic');
   const photoTitle = newPhoto.querySelector('.photo-grid__title');
-  const deleteButton = newPhoto.querySelector('.photo-grid__delete');
-  const likeButton = newPhoto.querySelector('.photo-grid__like');
+  const buttonDelete = newPhoto.querySelector('.photo-grid__delete');
+  const buttonLike = newPhoto.querySelector('.photo-grid__like');
 
   photoTitle.textContent = name;
   photoSrc.alt = name;
@@ -61,8 +61,8 @@ function addPhoto(name, link) {
     modalSrc.src = link;
   }
 
-  deleteButton.addEventListener('click', handleDeletePhoto);
-  likeButton.addEventListener('click', handleLike);
+  buttonDelete.addEventListener('click', handleDeletePhoto);
+  buttonLike.addEventListener('click', handleLike);
   photoSrc.addEventListener('click', handleModal);
 
   return newPhoto;
@@ -125,10 +125,10 @@ enableValidation({
 
 //event listeners
 formElement.addEventListener('submit', handleFormSubmit);
-closeButton.addEventListener('click', () => { closePopup(popupProfile); });
-editButton.addEventListener('click', editProfile);
-addButton.addEventListener('click', () => { openPopup(popupPhoto); });
+buttonClose.addEventListener('click', () => { closePopup(popupProfile); });
+buttonEdit.addEventListener('click', editProfile);
+buttonAdd.addEventListener('click', () => { openPopup(popupPhoto); });
 formPhoto.addEventListener('submit', handlePhotoFormSubmit);
-showPhoto.addEventListener('click', addPhoto);
-closePhoto.addEventListener('click', () => { closePopup(popupPhoto); });
-closeModalPhoto.addEventListener('click', () => { closePopup(popupModal); });
+photoShow.addEventListener('click', addPhoto);
+photoClose.addEventListener('click', () => { closePopup(popupPhoto); });
+modalPhotoClose.addEventListener('click', () => { closePopup(popupModal); });
