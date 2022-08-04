@@ -100,9 +100,9 @@ function closePopup(popup) {
 }
 
 function handlePressEsc(evt) {
-  const activePopup = document.querySelector('.popup_opened');
-  if (activePopup && evt.key === 'Escape') {
-    closePopup(activePopup);
+  if (evt.key === 'Escape') {
+    const activePopup = document.querySelector('.popup_opened');
+    if (activePopup){closePopup(activePopup)};
   }
 }
 
@@ -113,15 +113,16 @@ function handleClickOverlay(evt) {
   }
 }
 
-enableValidation({
-  formSelector: '.form',
-  inputSelector: '.form__input',
-  submitButtonSelector: '.form__submit',
-  inactiveButtonClass: 'form__submit_disabled',
-  inputErrorClass: 'form__input_error',
-  errorSelector: '.form__input-error-message',
-  errorActiveClass: 'form__input-error-message_active',
-});
+const validationSettings = {
+    formSelector: '.form',
+    inputSelector: '.form__input',
+    submitButtonSelector: '.form__submit',
+    inactiveButtonClass: 'form__submit_disabled',
+    inputErrorClass: 'form__input_error',
+    errorSelector: '.form__input-error-message',
+    errorActiveClass: 'form__input-error-message_active',
+  };
+enableValidation(validationSettings);
 
 //event listeners
 formElement.addEventListener('submit', handleFormSubmit);
