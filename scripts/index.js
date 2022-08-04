@@ -119,8 +119,8 @@ enableValidation({
   submitButtonSelector: '.form__submit',
   inactiveButtonClass: 'form__submit_disabled',
   inputErrorClass: 'form__input_error',
-  errorSelector: '.form__input_error-message',
-  errorActiveClass: 'form__input_error-message_active',
+  errorSelector: '.form__input-error-message',
+  errorActiveClass: 'form__input-error-message_active',
 });
 
 //event listeners

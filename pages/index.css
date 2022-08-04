@@ -36,8 +36,8 @@
 @import url(../blocks/form/__field/form__field.css);
 @import url(../blocks/form/__submit/_disabled/_form__submit_disabled.css);
 @import url(../blocks/form/__input/_error/form__input_error.css);
-@import url(../blocks/form/__input/_error-message/form__input_error-message.css);
-@import url(../blocks/form/__input/_error-message/_active/form__input_error-message_active.css);
+@import url(../blocks/form/__input-error-message/form__input-error-message.css);
+@import url(../blocks/form/__input-error-message/_active/form__input-error-message_active.css);
 @import url(../blocks/form/__input-wrapper/form__input-wrapper.css);
 
 /*photo-grid*/
