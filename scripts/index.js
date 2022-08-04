@@ -102,11 +102,18 @@ function handlePressEsc(evt) {
   }
 }
 
+function handleClickOverlay(evt) {
+  const activePopup = document.querySelector('.popup_opened');
+  if (activePopup && evt.target === activePopup) {
+    closePopup(activePopup);
+  }
+}
+
 enableValidation({
   formSelector: '.form',
   inputSelector: '.form__input',
   submitButtonSelector: '.form__submit',
-  inactiveButtonSelector: '.form__submit_disabled',
+  inactiveButtonClass: 'form__submit_disabled',
   inputErrorClass: 'form__input_error',
   errorSelector: '.form__input_error-message',
   errorActiveClass: 'form__input_error-message_active',
@@ -116,11 +123,8 @@ enableValidation({
 formElement.addEventListener('submit', handlerFormSubmit);
 closeButton.addEventListener('click', () => { closePopup(popupProfile); });
 editButton.addEventListener('click', editProfile);
-
 addButton.addEventListener('click', () => { openPopup(popupPhoto); });
-
 formPhoto.addEventListener('submit', handlePhotoFormSubmit);
 showPhoto.addEventListener('click', addPhoto);
-
 closePhoto.addEventListener('click', () => { closePopup(popupPhoto); });
 closeModalPhoto.addEventListener('click', () => { closePopup(popupModal); });

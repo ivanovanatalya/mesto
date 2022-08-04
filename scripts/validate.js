@@ -1,25 +1,18 @@
-function handleClickOverlay(evt) {
-  const activePopup = document.querySelector('.popup_opened');
-  if (activePopup && evt.target === activePopup) {
-    closePopup(activePopup);
-  }
-}
 const hasInvalidInput = (inputList) => {
   return inputList.some(input => !input.validity.valid)
 };
 
 const toggleButtonState = (inputList, buttonElement, params) => {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add(params.inactiveButtonSelector);
+    buttonElement.classList.add(params.inactiveButtonClass);
   } else {
-    buttonElement.classList.remove(params.inactiveButtonSelector);
+    buttonElement.classList.remove(params.inactiveButtonClass);
   }
 };
 
 const setEventListeners = (formElement, params) => {
   const inputList = Array.from(formElement.querySelectorAll(params.inputSelector));
   const buttonElement = formElement.querySelector(params.submitButtonSelector);
-
   inputList.forEach((inputElement) => {
     inputElement.setCustomValidity('');
     inputElement.addEventListener('input', () => {
