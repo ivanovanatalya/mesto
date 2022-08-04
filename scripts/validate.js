@@ -3,10 +3,12 @@ const hasInvalidInput = (inputList) => {
 };
 
 const toggleButtonState = (inputList, buttonElement, params) => {
+  console.log(buttonElement)
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add(params.inactiveButtonClass);
   } else {
     buttonElement.classList.remove(params.inactiveButtonClass);
+    console.log(buttonElement.classList)
   }
 };
 
@@ -17,7 +19,7 @@ const setEventListeners = (formElement, params) => {
     inputElement.setCustomValidity('');
     inputElement.addEventListener('input', () => {
       toggleButtonState(inputList, buttonElement, params);
-      isValid(formElement, inputElement, params)
+      isValid(formElement, inputElement, params);
     });
   });
 }

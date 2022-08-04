@@ -27,7 +27,7 @@ const modalTitle = popupModal.querySelector('.popup__pic-caption');
 const closeModalPhoto = document.querySelector('#modalClose');
 
 //form add photo
-function handlePhotoFormSubmit (evt) {
+function handlePhotoFormSubmit(evt) {
   evt.preventDefault();
   photoContainer.prepend(addPhoto(photoTitleInput.value, photoLinkInput.value));
   photoTitleInput.value = '';
@@ -68,33 +68,37 @@ function addPhoto(name, link) {
   return newPhoto;
 }
 
-initialCards.forEach(function(item) {
+initialCards.forEach(function (item) {
   const newCard = addPhoto(item['name'], item['link']);
   photoContainer.append(newCard);
 });
 
 //add form profile
-function handlerFormSubmit (evt) {
+function handleFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileDescription.textContent = descriptionInput.value;
   closePopup(popupProfile);
 }
+
 function editProfile() {
   openPopup(popupProfile);
   nameInput.value = profileName.textContent;
   descriptionInput.value = profileDescription.textContent;
 }
-function openPopup(popupName) {
-  popupName.classList.add('popup_opened');
+
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
   document.addEventListener('keydown', handlePressEsc);
   document.addEventListener('mousedown', handleClickOverlay);
 }
-function closePopup(popupName) {
-  popupName.classList.remove('popup_opened');
+
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
   document.addEventListener('keydown', handlePressEsc);
   document.addEventListener('mousedown', handleClickOverlay);
 }
+
 function handlePressEsc(evt) {
   const activePopup = document.querySelector('.popup_opened');
   if (activePopup && evt.key === 'Escape') {
@@ -120,7 +124,7 @@ enableValidation({
 });
 
 //event listeners
-formElement.addEventListener('submit', handlerFormSubmit);
+formElement.addEventListener('submit', handleFormSubmit);
 closeButton.addEventListener('click', () => { closePopup(popupProfile); });
 editButton.addEventListener('click', editProfile);
 addButton.addEventListener('click', () => { openPopup(popupPhoto); });
