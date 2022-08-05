@@ -2,25 +2,39 @@ const hasInvalidInput = (inputList) => {
   return inputList.some(input => !input.validity.valid)
 };
 
-const toggleButtonState = (inputList, buttonElement, params) => {
-  console.log(buttonElement)
+const toggleButtonState = (formElement, params) => {
+  const inputList = Array.from(formElement.querySelectorAll(params.inputSelector));
+  const buttonElement = formElement.querySelector(params.submitButtonSelector);
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add(params.inactiveButtonClass);
-    buttonElement.disabled=true;
+    disableButton(buttonElement, params);
   } else {
-    buttonElement.classList.remove(params.inactiveButtonClass);
-    buttonElement.disabled=false;
-    console.log(buttonElement.classList)
+    enableButton(buttonElement, params);
   }
 };
 
+const checkInputs = (form, params) => {
+  const inputList = Array.from(form.querySelectorAll(params.inputSelector));
+  inputList.forEach((inputElement) => {
+      isValid(form, inputElement, params);
+    });
+}
+
+const disableButton = (buttonElement, params) => {
+  buttonElement.classList.add(params.inactiveButtonClass);
+  buttonElement.disabled = true;
+}
+
+const enableButton = (buttonElement, params) => {
+  buttonElement.classList.remove(params.inactiveButtonClass);
+  buttonElement.disabled = false;
+}
+
 const setEventListeners = (formElement, params) => {
   const inputList = Array.from(formElement.querySelectorAll(params.inputSelector));
-  const buttonElement = formElement.querySelector(params.submitButtonSelector);
   inputList.forEach((inputElement) => {
     inputElement.setCustomValidity('');
     inputElement.addEventListener('input', () => {
-      toggleButtonState(inputList, buttonElement, params);
+      toggleButtonState(formElement, params);
       isValid(formElement, inputElement, params);
     });
   });
@@ -37,9 +51,6 @@ const isValid = (formElement, inputElement, params) => {
 const enableValidation = (params) => {
   const formList = Array.from(document.querySelectorAll(params.formSelector));
   formList.forEach((formElement) => {
-    formElement.addEventListener('submit', function (evt) {
-      evt.preventDefault();
-    });
     setEventListeners(formElement, params);
   });
 };

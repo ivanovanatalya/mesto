@@ -26,6 +26,18 @@ const modalSrc = popupModal.querySelector('.popup__pic');
 const modalTitle = popupModal.querySelector('.popup__pic-caption');
 const modalPhotoClose = document.querySelector('#modalClose');
 
+const validationSettings = {
+  formSelector: '.form',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.form__submit',
+  inactiveButtonClass: 'form__submit_disabled',
+  inputErrorClass: 'form__input_error',
+  errorSelector: '.form__input-error-message',
+  errorActiveClass: 'form__input-error-message_active',
+};
+
+enableValidation(validationSettings);
+
 //form add photo
 function handlePhotoFormSubmit(evt) {
   evt.preventDefault();
@@ -82,27 +94,31 @@ function handleFormSubmit(evt) {
 }
 
 function editProfile() {
-  openPopup(popupProfile);
   nameInput.value = profileName.textContent;
   descriptionInput.value = profileDescription.textContent;
+  checkInputs(popupProfile, validationSettings);
+  openPopup(popupProfile);
 }
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  if (!popup.classList.contains('popup_type_modal')) {
+    toggleButtonState(popup, validationSettings);
+  }
   document.addEventListener('keydown', handlePressEsc);
   document.addEventListener('mousedown', handleClickOverlay);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  document.addEventListener('keydown', handlePressEsc);
-  document.addEventListener('mousedown', handleClickOverlay);
 }
 
 function handlePressEsc(evt) {
   if (evt.key === 'Escape') {
     const activePopup = document.querySelector('.popup_opened');
-    if (activePopup){closePopup(activePopup)};
+    if (activePopup){
+      closePopup(activePopup)
+    };
   }
 }
 
@@ -112,17 +128,6 @@ function handleClickOverlay(evt) {
     closePopup(activePopup);
   }
 }
-
-const validationSettings = {
-    formSelector: '.form',
-    inputSelector: '.form__input',
-    submitButtonSelector: '.form__submit',
-    inactiveButtonClass: 'form__submit_disabled',
-    inputErrorClass: 'form__input_error',
-    errorSelector: '.form__input-error-message',
-    errorActiveClass: 'form__input-error-message_active',
-  };
-enableValidation(validationSettings);
 
 //event listeners
 formElement.addEventListener('submit', handleFormSubmit);
