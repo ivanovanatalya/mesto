@@ -97,26 +97,26 @@ function editProfile() {
   nameInput.value = profileName.textContent;
   descriptionInput.value = profileDescription.textContent;
   checkInputs(popupProfile, validationSettings);
+  toggleButtonState(popupProfile, validationSettings);
   openPopup(popupProfile);
 }
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  if (!popup.classList.contains('popup_type_modal')) {
-    toggleButtonState(popup, validationSettings);
-  }
   document.addEventListener('keydown', handlePressEsc);
   document.addEventListener('mousedown', handleClickOverlay);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', handlePressEsc);
+  document.removeEventListener('mousedown', handleClickOverlay);
 }
 
 function handlePressEsc(evt) {
   if (evt.key === 'Escape') {
     const activePopup = document.querySelector('.popup_opened');
-    if (activePopup){
+    if (activePopup) {
       closePopup(activePopup)
     };
   }
@@ -133,7 +133,10 @@ function handleClickOverlay(evt) {
 formElement.addEventListener('submit', handleFormSubmit);
 buttonClose.addEventListener('click', () => { closePopup(popupProfile); });
 buttonEdit.addEventListener('click', editProfile);
-buttonAdd.addEventListener('click', () => { openPopup(popupPhoto); });
+buttonAdd.addEventListener('click', () => {
+  toggleButtonState(popupPhoto, validationSettings);
+  openPopup(popupPhoto);
+});
 formPhoto.addEventListener('submit', handlePhotoFormSubmit);
 photoShow.addEventListener('click', addPhoto);
 photoClose.addEventListener('click', () => { closePopup(popupPhoto); });
