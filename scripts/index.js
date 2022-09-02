@@ -1,7 +1,6 @@
 import Card from './Card.js';
 import FormValidator from './FormValidator.js';
 import initialCards from './initial-cards.js';
-
 // button
 const buttonClose = document.querySelector('#profileClose');
 const buttonEdit = document.querySelector('.profile__button-edit');
@@ -44,7 +43,6 @@ function createCard(item) {
   return card.generateCard();
 }
 
-//form add photo
 function handlePhotoFormSubmit(evt) {
   evt.preventDefault();
   const data = { name: photoTitleInput.value, link: photoLinkInput.value };
@@ -59,7 +57,6 @@ initialCards.forEach(function (item) {
   const newCard = createCard(item);
   photoContainer.append(newCard);
 });
-
 
 function handleFormSubmit(evt) {
   evt.preventDefault();

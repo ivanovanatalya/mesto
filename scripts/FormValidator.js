@@ -3,7 +3,7 @@ class FormValidator {
     this._validationSettings = validationSettings;
     this._formElement = formElement;
     this._buttonOpenForm = buttonOpenForm;
-    this._isInitialValid = isInitialValid ;
+    this._isInitialValid = isInitialValid;
   }
 
   _hasInvalidInput = (inputList) => {

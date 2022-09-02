@@ -20,7 +20,7 @@ class Card {
 
     this._element = newPhoto;
   };
-  // модальное окно для просмотра фото
+
   _handleCardModal() {
     openPopup(this._popupModal);
     this._modalTitle.textContent = this._name;
