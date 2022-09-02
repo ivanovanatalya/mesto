@@ -1,3 +1,6 @@
+import Card from './Card.js';
+import FormValidator from './FormValidator.js';
+
 // button
 const buttonClose = document.querySelector('#profileClose');
 const buttonEdit = document.querySelector('.profile__button-edit');
@@ -6,11 +9,13 @@ const buttonAdd = document.querySelector('.profile__button-add');
 const photoContainer = document.querySelector('.photo-grid');
 const photoTemplate = document.querySelector('#photo-grid-template');
 // popup
-const popupProfile = document.querySelector('.popup_type_profile');
-const popupPhoto = document.querySelector('.popup_type_photo');
+const popupProfileSelector = '.popup_type_profile';
+const popupProfile = document.querySelector(popupProfileSelector);
+const popupPhotoSelector = '.popup_type_photo';
+const popupPhoto = document.querySelector(popupPhotoSelector);
 const photoClose = document.querySelector('#popupPhotoClose');
 // form profile
-const formElement = document.querySelector('.form');
+const formSelector = document.querySelector('.form');
 const nameInput = document.querySelector('.form__input_type_name');
 const descriptionInput = document.querySelector('.form__input_type_description');
 const profileName = document.querySelector('.profile__name');
@@ -20,7 +25,7 @@ const formPhoto = document.querySelector('.form_type_photo');
 const photoTitleInput = document.querySelector('.form__input_type_title');
 const photoLinkInput = document.querySelector('.form__input_type_src');
 const photoShow = document.querySelector('#createPhoto');
-//modal
+// //modal
 const popupModal = document.querySelector('.popup_type_modal');
 const modalSrc = popupModal.querySelector('.popup__pic');
 const modalTitle = popupModal.querySelector('.popup__pic-caption');
@@ -36,14 +41,29 @@ const validationSettings = {
   errorActiveClass: 'form__input-error-message_active',
 };
 
-enableValidation(validationSettings);
+//создаем экземпляр класса FormValidator
+const validateProfile = new FormValidator(validationSettings, popupProfileSelector);
+const validatePhoto = new FormValidator(validationSettings, popupPhotoSelector);
+validateProfile.enableValidation();
+validatePhoto.enableValidation();
+
+//создаем экземпляр класса Card
+function createCard(item) {
+  const card = new Card(item, '#photo-grid-template');
+  return card.generateCard();
+}
 
 //form add photo
 function handlePhotoFormSubmit(evt) {
   evt.preventDefault();
-  photoContainer.prepend(addPhoto(photoTitleInput.value, photoLinkInput.value));
-  photoTitleInput.value = '';
-  photoLinkInput.value = '';
+  const data = {};
+  data.name = photoTitleInput.value;
+  data.link = photoLinkInput.value;
+  // photoContainer.prepend(addPhoto(photoTitleInput.value, photoLinkInput.value));
+  // photoTitleInput.value = '';
+  // photoLinkInput.value = '';
+  const newCard = createCard(data);
+  photoContainer.prepend(newCard);
   closePopup(popupPhoto);
 }
 // add photo
@@ -80,10 +100,10 @@ function addPhoto(name, link) {
   return newPhoto;
 }
 
-initialCards.forEach(function (item) {
-  const newCard = addPhoto(item['name'], item['link']);
-  photoContainer.append(newCard);
-});
+// initialCards.forEach(function (item) {
+//   const newCard = createCard(item['name'], item['link']);
+//   photoContainer.append(newCard);
+// });
 
 //add form profile
 function handleFormSubmit(evt) {
@@ -129,8 +149,9 @@ function handleClickOverlay(evt) {
   }
 }
 
+
 //event listeners
-formElement.addEventListener('submit', handleFormSubmit);
+formSelector.addEventListener('submit', handleFormSubmit);
 buttonClose.addEventListener('click', () => { closePopup(popupProfile); });
 buttonEdit.addEventListener('click', editProfile);
 buttonAdd.addEventListener('click', () => {
