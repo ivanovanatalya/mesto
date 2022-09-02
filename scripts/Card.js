@@ -1,6 +1,6 @@
-import { openPopup, closePopup } from './index.js';
+import { openPopup } from './index.js';
 
-class  Card {
+class Card {
   constructor(data, selector) {
     this._name = data.name;
     this._link = data.link;
@@ -14,8 +14,6 @@ class  Card {
     const newPhoto = document.querySelector(this._cardSelector).content.querySelector('.photo-grid__item').cloneNode(true);
     const photoSrc = newPhoto.querySelector('.photo-grid__pic');
     const photoTitle = newPhoto.querySelector('.photo-grid__title');
-    const buttonDelete = newPhoto.querySelector('.photo-grid__delete');
-    const buttonLike = newPhoto.querySelector('.photo-grid__like');
     photoTitle.textContent = this._name;
     photoSrc.alt = this._name;
     photoSrc.src = this._link;
@@ -24,10 +22,10 @@ class  Card {
   };
   // модальное окно для просмотра фото
   _handleCardModal() {
-      openPopup(this._popupModal);
-      this._modalTitle.textContent = this._name;
-      this._modalSrc.alt = this._name;
-      this._modalSrc.src = this._link;
+    openPopup(this._popupModal);
+    this._modalTitle.textContent = this._name;
+    this._modalSrc.alt = this._name;
+    this._modalSrc.src = this._link;
   }
 
   _handleCardLike() {
@@ -39,17 +37,16 @@ class  Card {
   }
 
   _setEventListeners() {
-		this._element.querySelector('.photo-grid__pic').addEventListener('click', () => {
-			this._handleCardModal();
-		});
+    this._element.querySelector('.photo-grid__pic').addEventListener('click', () => {
+      this._handleCardModal();
+    });
     this._element.querySelector('.photo-grid__like').addEventListener('click', () => {
-			this._handleCardLike();
-		});
+      this._handleCardLike();
+    });
     this._element.querySelector('.photo-grid__delete').addEventListener('click', () => {
-			this._handleCardDelete();
-		});
-
-	}
+      this._handleCardDelete();
+    });
+  }
 
   generateCard() {
     this._getTemplate();
