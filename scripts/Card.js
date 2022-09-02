@@ -29,7 +29,7 @@ class  Card {
       this._modalSrc.alt = this._name;
       this._modalSrc.src = this._link;
   }
-  // лайк
+
   _handleCardLike() {
     this._element.querySelector('.photo-grid__like').classList.toggle('photo-grid__like_active');
   }
@@ -37,25 +37,20 @@ class  Card {
   _handleCardDelete() {
     this._element.remove();
   }
-  // слушатели
+
   _setEventListeners() {
 		this._element.querySelector('.photo-grid__pic').addEventListener('click', () => {
 			this._handleCardModal();
 		});
-
     this._element.querySelector('.photo-grid__like').addEventListener('click', () => {
 			this._handleCardLike();
 		});
-
     this._element.querySelector('.photo-grid__delete').addEventListener('click', () => {
 			this._handleCardDelete();
 		});
 
 	}
-  // photoClose.addEventListener('click', () => { closePopup(popupPhoto); });
-  // modalPhotoClose.addEventListener('click', () => { closePopup(popupModal); });
 
-  //карточка
   generateCard() {
     this._getTemplate();
     this._setEventListeners();
