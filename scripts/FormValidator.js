@@ -1,7 +1,8 @@
 class FormValidator {
-  constructor(validationSettings, formElement) {
+  constructor(validationSettings, formElement, buttonOpenForm) {
     this._validationSettings = validationSettings;
     this._formElement = formElement;
+    this._buttonOpenForm = buttonOpenForm;
   }
 
   _hasInvalidInput = (inputList) => {
@@ -44,10 +45,12 @@ class FormValidator {
         this._isValid(formElement, inputElement, params);
       });
     });
-    // buttonAdd.addEventListener('click', () => {
-    //   _toggleButtonState(popupPhoto, this._validationSettings);
-    //   openPopup(popupPhoto);
-    // });
+
+    this._buttonOpenForm.addEventListener('click', () => {
+      this._checkInputs(formElement, params);
+      this._toggleButtonState(formElement, params);
+    });
+
   }
 
   _isValid = (formElement, inputElement, params) => {

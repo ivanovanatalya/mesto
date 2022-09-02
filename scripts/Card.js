@@ -1,7 +1,6 @@
 import { openPopup, closePopup } from './index.js';
 
 class  Card {
-
   constructor(data, selector) {
     this._name = data.name;
     this._link = data.link;
@@ -9,8 +8,8 @@ class  Card {
     this._popupModal = document.querySelector('.popup_type_modal');
     this._modalSrc = this._popupModal.querySelector('.popup__pic');
     this._modalTitle = this._popupModal.querySelector('.popup__pic-caption');
-
   }
+
   _getTemplate() {
     const newPhoto = document.querySelector(this._cardSelector).content.querySelector('.photo-grid__item').cloneNode(true);
     const photoSrc = newPhoto.querySelector('.photo-grid__pic');
@@ -32,9 +31,9 @@ class  Card {
   }
   // лайк
   _handleCardLike() {
-    this._element.classList.toggle('photo-grid__like_active');
+    this._element.querySelector('.photo-grid__like').classList.toggle('photo-grid__like_active');
   }
-  // удаление
+
   _handleCardDelete() {
     this._element.remove();
   }
@@ -52,7 +51,6 @@ class  Card {
 			this._handleCardDelete();
 		});
 
-    
 	}
   // photoClose.addEventListener('click', () => { closePopup(popupPhoto); });
   // modalPhotoClose.addEventListener('click', () => { closePopup(popupModal); });
