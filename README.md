@@ -1,25 +1,25 @@
-# Проектная работа 6 Mesto
+# Сервис [Mesto](https://ivanovanatalya.github.io/mesto/index.html)
 ---
-Проектная работа сервиса Mesto.
+**Проектная работа 7**
 
-Выполнена в рамках обучения на курсе [веб-разработчик Яндекс.Практикум](https://practicum.yandex.ru/web/?utm_source=practicum&utm_medium=email&utm_campaign=sendr-597315), модуль *Базовый JavaScript и работа с браузером*.
+Выполнена в рамках обучения на курсе [веб-разработчик Яндекс.Практикум](https://practicum.yandex.ru/web/?utm_source=practicum&utm_medium=email&utm_campaign=sendr-597315).
 
-* технологии html, css, JavaScript
+[![badge](https://img.shields.io/badge/Technologies-HTML5-orange)](https://html.spec.whatwg.org/multipage/) [![badge](https://img.shields.io/badge/Technologies-CSS3-blue)](https://www.w3.org/Style/CSS/#specs) [![badge](https://img.shields.io/badge/Technologies-JS-yellow)](https://www.w3.org/Style/CSS/#specs)
+
 * применена файловая структура проекта по правилам Nested БЭМ
 * проработана адаптивная вёрстка
 * применена работа с ветками в git
 * добавлена работа с массивом карточек
 * добавлены формы ввода
 * добавлена возможность лайка и удаления карточек, открытия модальных окон
-* разработаете валидацию всех форм,
-* улучшите UX при работе с попапами.
+* добавлена валидация всех форм
+* улучшена UX при работе с попапами
+* применена работа с модулями в JavaScript
 
 **Figma**
-* [Ссылка на макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
+* [Макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
+
+![screenshot](./images/forReadme.jpg)
 
 **Планы по доработкам проекта:**
-* рефакторинг кода (с учетом ревью),
-* добавление логики на JavaScript для интерактивной страницы, куда можно добавлять фотографии, удалять их и ставить лайки.
-
-Проект доступен по [ссылке](https://ivanovanatalya.github.io/mesto/index.html).
-
+* рефакторинг кода (с учетом ревью)
