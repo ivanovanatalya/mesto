@@ -2,7 +2,6 @@ class FormValidator {
   constructor(validationSettings, formElement) {
     this._validationSettings = validationSettings;
     this._formElement = formElement;
-
   }
 
   _hasInvalidInput = (inputList) => {
@@ -45,6 +44,10 @@ class FormValidator {
         this._isValid(formElement, inputElement, params);
       });
     });
+    // buttonAdd.addEventListener('click', () => {
+    //   _toggleButtonState(popupPhoto, this._validationSettings);
+    //   openPopup(popupPhoto);
+    // });
   }
 
   _isValid = (formElement, inputElement, params) => {

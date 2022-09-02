@@ -1,5 +1,6 @@
 import Card from './Card.js';
 import FormValidator from './FormValidator.js';
+import initialCards from './initial-cards.js';
 
 // button
 const buttonClose = document.querySelector('#profileClose');
@@ -27,8 +28,8 @@ const photoLinkInput = document.querySelector('.form__input_type_src');
 const photoShow = document.querySelector('#createPhoto');
 // //modal
 const popupModal = document.querySelector('.popup_type_modal');
-const modalSrc = popupModal.querySelector('.popup__pic');
-const modalTitle = popupModal.querySelector('.popup__pic-caption');
+// const modalSrc = popupModal.querySelector('.popup__pic');
+// const modalTitle = popupModal.querySelector('.popup__pic-caption');
 const modalPhotoClose = document.querySelector('#modalClose');
 
 const validationSettings = {
@@ -46,6 +47,8 @@ const validateProfile = new FormValidator(validationSettings, popupProfileSelect
 const validatePhoto = new FormValidator(validationSettings, popupPhotoSelector);
 validateProfile.enableValidation();
 validatePhoto.enableValidation();
+
+
 
 //создаем экземпляр класса Card
 function createCard(item) {
@@ -66,44 +69,44 @@ function handlePhotoFormSubmit(evt) {
   photoContainer.prepend(newCard);
   closePopup(popupPhoto);
 }
-// add photo
-function addPhoto(name, link) {
-  function handleDeletePhoto(evt) {
-    evt.target.closest('.photo-grid__item').remove();
-  }
+// // add photo
+// function addPhoto(name, link) {
+//   function handleDeletePhoto(evt) {
+//     evt.target.closest('.photo-grid__item').remove();
+//   }
 
-  function handleLike(evt) {
-    evt.target.classList.toggle('photo-grid__like_active');
-  }
+//   function handleLike(evt) {
+//     evt.target.classList.toggle('photo-grid__like_active');
+//   }
 
-  const newPhoto = photoTemplate.content.querySelector('.photo-grid__item').cloneNode(true);
-  const photoSrc = newPhoto.querySelector('.photo-grid__pic');
-  const photoTitle = newPhoto.querySelector('.photo-grid__title');
-  const buttonDelete = newPhoto.querySelector('.photo-grid__delete');
-  const buttonLike = newPhoto.querySelector('.photo-grid__like');
+//   const newPhoto = photoTemplate.content.querySelector('.photo-grid__item').cloneNode(true);
+//   const photoSrc = newPhoto.querySelector('.photo-grid__pic');
+//   const photoTitle = newPhoto.querySelector('.photo-grid__title');
+//   const buttonDelete = newPhoto.querySelector('.photo-grid__delete');
+//   const buttonLike = newPhoto.querySelector('.photo-grid__like');
 
-  photoTitle.textContent = name;
-  photoSrc.alt = name;
-  photoSrc.src = link;
+//   photoTitle.textContent = name;
+//   photoSrc.alt = name;
+//   photoSrc.src = link;
 
-  function handleModal() {
-    openPopup(popupModal);
-    modalTitle.textContent = name;
-    modalSrc.alt = name;
-    modalSrc.src = link;
-  }
+//   function handleModal() {
+//     openPopup(popupModal);
+//     modalTitle.textContent = name;
+//     modalSrc.alt = name;
+//     modalSrc.src = link;
+//   }
 
-  buttonDelete.addEventListener('click', handleDeletePhoto);
-  buttonLike.addEventListener('click', handleLike);
-  photoSrc.addEventListener('click', handleModal);
+//   buttonDelete.addEventListener('click', handleDeletePhoto);
+//   buttonLike.addEventListener('click', handleLike);
+//   photoSrc.addEventListener('click', handleModal);
 
-  return newPhoto;
-}
+//   return newPhoto;
+// }
 
-// initialCards.forEach(function (item) {
-//   const newCard = createCard(item['name'], item['link']);
-//   photoContainer.append(newCard);
-// });
+initialCards.forEach(function (item) {
+  const newCard = createCard(item);
+  photoContainer.append(newCard);
+});
 
 //add form profile
 function handleFormSubmit(evt) {
@@ -116,8 +119,8 @@ function handleFormSubmit(evt) {
 function editProfile() {
   nameInput.value = profileName.textContent;
   descriptionInput.value = profileDescription.textContent;
-  checkInputs(popupProfile, validationSettings);
-  toggleButtonState(popupProfile, validationSettings);
+  // checkInputs(popupProfile, validationSettings);
+  // toggleButtonState(popupProfile, validationSettings);
   openPopup(popupProfile);
 }
 
@@ -150,15 +153,18 @@ function handleClickOverlay(evt) {
 }
 
 
+
 //event listeners
 formSelector.addEventListener('submit', handleFormSubmit);
 buttonClose.addEventListener('click', () => { closePopup(popupProfile); });
 buttonEdit.addEventListener('click', editProfile);
 buttonAdd.addEventListener('click', () => {
-  toggleButtonState(popupPhoto, validationSettings);
+  // toggleButtonState(popupPhoto, validationSettings);
   openPopup(popupPhoto);
 });
 formPhoto.addEventListener('submit', handlePhotoFormSubmit);
-photoShow.addEventListener('click', addPhoto);
+// photoShow.addEventListener('click', addPhoto);
 photoClose.addEventListener('click', () => { closePopup(popupPhoto); });
 modalPhotoClose.addEventListener('click', () => { closePopup(popupModal); });
+
+export { openPopup, closePopup};
