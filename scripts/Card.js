@@ -11,14 +11,9 @@ class Card {
   }
 
   _getTemplate() {
-    const newPhoto = document.querySelector(this._cardSelector).content.querySelector('.photo-grid__item').cloneNode(true);
-    const photoSrc = newPhoto.querySelector('.photo-grid__pic');
-    const photoTitle = newPhoto.querySelector('.photo-grid__title');
-    photoTitle.textContent = this._name;
-    photoSrc.alt = this._name;
-    photoSrc.src = this._link;
+    return document.querySelector(this._cardSelector).content.querySelector('.photo-grid__item').cloneNode(true);
 
-    this._element = newPhoto;
+
   };
 
   _handleCardModal() {
@@ -29,33 +24,36 @@ class Card {
   }
 
   _handleCardLike() {
-    this._element.querySelector('.photo-grid__like').classList.toggle('photo-grid__like_active');
+    this._elementLike.classList.toggle('photo-grid__like_active');
   }
 
   _handleCardDelete() {
+    this._element = null;
     this._element.remove();
   }
 
   _setEventListeners() {
-    this._element.querySelector('.photo-grid__pic').addEventListener('click', () => {
+    this._elementPic.addEventListener('click', () => {
       this._handleCardModal();
     });
-    this._element.querySelector('.photo-grid__like').addEventListener('click', () => {
+
+    this._elementLike.addEventListener('click', () => {
       this._handleCardLike();
     });
+
     this._element.querySelector('.photo-grid__delete').addEventListener('click', () => {
       this._handleCardDelete();
     });
   }
 
   generateCard() {
-    this._getTemplate();
-    this._setEventListeners();
-
-    this._element.querySelector('.photo-grid__pic').src = this._link;
-    this._element.querySelector('.photo-grid__pic').alt = this._name;
+    this._element = this._getTemplate();
+    this._elementPic = this._element.querySelector('.photo-grid__pic');
+    this._elementLike = this._element.querySelector('.photo-grid__like');
+    this._elementPic.src = this._link;
+    this._elementPic.alt = this._name;
     this._element.querySelector('.photo-grid__title').textContent = this._name;
-
+    this._setEventListeners();
     return this._element;
   }
 }

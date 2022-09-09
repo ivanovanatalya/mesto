@@ -94,9 +94,11 @@ function handlePressEsc(evt) {
 
 function handleClickOverlay(evt) {
   const activePopup = document.querySelector('.popup_opened');
-  if (activePopup && evt.target === activePopup) {
-    closePopup(activePopup);
-  }
+
+  if (activePopup && activePopup === evt.target) {
+  // if (evt.target !== evt.currentTarget) {
+    closePopup(activePopup)
+  };
 }
 
 formSelector.addEventListener('submit', handleFormSubmit);
@@ -108,8 +110,8 @@ buttonAdd.addEventListener('click', () => {
 
 //создаем экземпляр класса FormValidator
 const isInitialValid = true;
-const validateProfile = new FormValidator(validationSettings, popupProfileSelector, buttonEdit, isInitialValid);
-const validatePhoto = new FormValidator(validationSettings, popupPhotoSelector, buttonAdd);
+const validateProfile = new FormValidator(validationSettings, popupProfile, buttonEdit, isInitialValid);
+const validatePhoto = new FormValidator(validationSettings, popupPhoto, buttonAdd);
 validateProfile.enableValidation();
 validatePhoto.enableValidation();
 
