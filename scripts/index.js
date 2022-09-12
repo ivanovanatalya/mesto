@@ -24,7 +24,11 @@ const formPhoto = document.querySelector('.form_type_photo');
 const photoTitleInput = document.querySelector('.form__input_type_title');
 const photoLinkInput = document.querySelector('.form__input_type_src');
 // //modal
-const popupModal = document.querySelector('.popup_type_modal');
+const modalSrc = document.querySelector('.popup__pic');
+const modalTitle = document.querySelector('.popup__pic-caption');
+const modalImage = document.querySelector('.popup_type_modal');
+
+const popupModal = { src: modalSrc, title: modalTitle, value: modalImage };
 const modalPhotoClose = document.querySelector('#modalClose');
 
 const validationSettings = {
@@ -74,13 +78,13 @@ function editProfile() {
 function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', handlePressEsc);
-  document.addEventListener('mousedown', handleClickOverlay);
+  popup.addEventListener('mousedown', handleClickOverlay);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', handlePressEsc);
-  document.removeEventListener('mousedown', handleClickOverlay);
+  popup.removeEventListener('mousedown', handleClickOverlay);
 }
 
 function handlePressEsc(evt) {
@@ -93,11 +97,8 @@ function handlePressEsc(evt) {
 }
 
 function handleClickOverlay(evt) {
-  const activePopup = document.querySelector('.popup_opened');
-
-  if (activePopup && activePopup === evt.target) {
-  // if (evt.target !== evt.currentTarget) {
-    closePopup(activePopup)
+  if (evt.target === evt.currentTarget) {
+    closePopup(evt.target)
   };
 }
 
@@ -117,6 +118,6 @@ validatePhoto.enableValidation();
 
 formPhoto.addEventListener('submit', handlePhotoFormSubmit);
 photoClose.addEventListener('click', () => { closePopup(popupPhoto); });
-modalPhotoClose.addEventListener('click', () => { closePopup(popupModal); });
+modalPhotoClose.addEventListener('click', () => { closePopup(modalImage); });
 
-export { openPopup };
+export { openPopup, popupModal };

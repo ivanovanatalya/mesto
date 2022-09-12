@@ -1,19 +1,18 @@
-import { openPopup } from './index.js';
+import { openPopup, popupModal } from './index.js';
+
 
 class Card {
   constructor(data, selector) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = selector;
-    this._popupModal = document.querySelector('.popup_type_modal');
-    this._modalSrc = this._popupModal.querySelector('.popup__pic');
-    this._modalTitle = this._popupModal.querySelector('.popup__pic-caption');
+    this._modalSrc = popupModal.src;
+    this._modalTitle = popupModal.title;
+    this._popupModal = popupModal.value;
   }
 
   _getTemplate() {
     return document.querySelector(this._cardSelector).content.querySelector('.photo-grid__item').cloneNode(true);
-
-
   };
 
   _handleCardModal() {
