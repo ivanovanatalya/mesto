@@ -1,8 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // подключили плагин
-
-// подключите к проекту mini-css-extract-plugin
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
@@ -52,6 +50,6 @@ module.exports = {
       template: './src/index.html' // путь к файлу index.html
     }),
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin() // подключение плагина для объединения файлов
+  new MiniCssExtractPlugin() // подключение плагина для объединения файлов
   ]
 };

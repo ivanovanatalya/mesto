@@ -14,7 +14,7 @@
   </header>
   <main class="content">
     <section class="profile">
-      <img src="images/Kusto.jpg" alt="Аватарка профиля" class="profile__avatar">
+      <img src="<%=require('./images/Kusto.jpg')%>"  alt="Аватарка профиля" class="profile__avatar">
       <div class="profile__info">
         <h1 class="profile__name">Жак-Ив Кусто</h1>
         <p class="profile__description">Исследователь океана</p>
@@ -75,7 +75,7 @@
   <div class="popup popup_type_modal">
     <div class="popup__container">
       <button class="popup__close" type="button" id="modalClose">Закрыть</button>
-      <img class="popup__pic" alt="Фото" src="./images/logo.svg">
+      <img class="popup__pic" alt="Фото" src="<%=require('./images/logo.svg')%>">
       <h2 class="popup__pic-caption">Фото</h2>
     </div>
   </div>
