@@ -1,4 +1,4 @@
-import { openPopup, popupModal } from './index.js';
+import { openPopup, popupModal } from '../pages/index.js';
 
 
 class Card {

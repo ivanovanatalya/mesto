@@ -1,6 +1,13 @@
-import Card from './Card.js';
-import FormValidator from './FormValidator.js';
-import initialCards from './initial-cards.js';
+import './index.css'; // добавьте импорт главного файла стилей
+import Card from '../components/Card.js';
+import FormValidator from '../components/FormValidator.js';
+import initialCards from '../components/initial-cards.js';
+import Section from "../components/Section.js";
+import Popup from '../components/Popup';
+import PopupWithImage from '../components/PopupWhitImage';
+import PopupWithForm from '../components/PopupWithForm';
+import UserInfo from '../components/UserInfo';
+
 // button
 const buttonClose = document.querySelector('#profileClose');
 const buttonEdit = document.querySelector('.profile__button-edit');
