@@ -66,11 +66,7 @@ class FormValidator {
 
   enableValidation = () => {
     const form = this._formWrapper.querySelector(this._validationSettings.formSelector);
-    // formList.forEach((element) => {
-      this._setEventListeners(form);
-    // });
-
-    // this._setEventListeners()
+    this._setEventListeners(form);
   };
 
   _showInputError = (formElement, inputElement, errorMessage) => {

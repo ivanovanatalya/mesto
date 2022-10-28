@@ -3,9 +3,6 @@ class Card {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = selector;
-    // this._modalSrc = popupModal.src;
-    // this._modalTitle = popupModal.title;
-    // this._popupModal = popupModal.value;
     this._handleCardClick = handleCardClick.bind(handleCardClick.__proto__);
   }
 
@@ -23,10 +20,8 @@ class Card {
   }
 
   _setEventListeners() {
-    console.log('set')
     this._elementPic.addEventListener('click', () => {
-      console.log('c')
-      this._handleCardClick({ name: this._name, link: this._link }).bind(handleCardClick);
+      this._handleCardClick({ name: this._name, link: this._link });
     });
 
     this._elementLike.addEventListener('click', () => {

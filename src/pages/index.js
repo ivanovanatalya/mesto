@@ -9,7 +9,6 @@ import PopupWithForm from '../components/PopupWithForm';
 import UserInfo from '../components/UserInfo';
 
 // button
-// const buttonClose = document.querySelector('#profileClose');
 const buttonEdit = document.querySelector('.profile__button-edit');
 const buttonAdd = document.querySelector('.profile__button-add');
 // photo-grid
@@ -28,18 +27,12 @@ const nameInput = document.querySelector('.form__input_type_name');
 const descriptionInput = document.querySelector('.form__input_type_description');
 const profileNameSelector = '.profile__name';
 const profileDescriptionSelector = '.profile__description';
-// photo
-// const formPhoto = document.querySelector('.form_type_photo');
-// const photoTitleInput = document.querySelector('.form__input_type_title');
-// const photoLinkInput = document.querySelector('.form__input_type_src');
+
 // //modal
 const modalSrc = document.querySelector('.popup__pic');
 const modalTitle = document.querySelector('.popup__pic-caption');
 const modalImage = document.querySelector('.popup_type_modal');
 const popupImageSelector = '.popup_type_modal';
-
-// const popupModal = { src: modalSrc, title: modalTitle, value: modalImage };
-// const modalPhotoClose = document.querySelector('#modalClose');
 
 const validationSettings = {
   formSelector: '.form',
@@ -56,19 +49,19 @@ popupEdit.setEventListeners();
 const popupAdd = new PopupWithForm(popupPhotoSelector, handlePhotoFormSubmit);
 popupAdd.setEventListeners();
 const popupImage = new PopupWithImage(popupImageSelector);
+popupImage.setEventListeners()
 const userInfo = new UserInfo(profileNameSelector, profileDescriptionSelector);
 
 //создаем экземпляр класса Card
 function createCard(item) {
-  const card = new Card(item, '#photo-grid-template', popupImage.open);
+  const card = new Card(item, '#photo-grid-template', popupImage.open.bind(popupImage));
   return card.generateCard();
 }
 const obj = { initialCards, createCard };
-const section = new Section(obj, photoContainerSelector );
+const section = new Section({ items: initialCards, renderer: createCard }, photoContainerSelector);
 section.addItems();
 
 function handlePhotoFormSubmit(inputValues) {
-  console.log(inputValues)
   const data = { name: inputValues.photo_title, link: inputValues.photo_link };
   const newCard = createCard(data);
   photoContainer.prepend(newCard);
@@ -85,38 +78,8 @@ function editProfile() {
   popupEdit.open()
 }
 
-// // переношу в Popup
-// function openPopup(popup) {
-//   popup.classList.add('popup_opened');
-//   document.addEventListener('keydown', handlePressEsc);
-//   popup.addEventListener('mousedown', handleClickOverlay);
-// }
-
-// function closePopup(popup) {
-//   popup.classList.remove('popup_opened');
-//   document.removeEventListener('keydown', handlePressEsc);
-//   popup.removeEventListener('mousedown', handleClickOverlay);
-// }
-
-// function handlePressEsc(evt) {
-//   if (evt.key === 'Escape') {
-//     const activePopup = document.querySelector('.popup_opened');
-//     if (activePopup) {
-//       closePopup(activePopup)
-//     };
-//   }
-// }
-
-// function handleClickOverlay(evt) {
-//   if (evt.target === evt.currentTarget) {
-//     closePopup(evt.target)
-//   };
-// }
-
-// form.addEventListener('submit', handleFormSubmit);
 buttonEdit.addEventListener('click', editProfile);
 buttonAdd.addEventListener('click', () => popupAdd.open());
-// buttonClose.addEventListener('click', () => { closePopup(popupProfile); });
 
 //создаем экземпляр класса FormValidator
 const isInitialValid = true;
@@ -124,9 +87,3 @@ const validateProfile = new FormValidator(validationSettings, popupProfile, butt
 const validatePhoto = new FormValidator(validationSettings, popupPhoto, buttonAdd);
 validateProfile.enableValidation();
 validatePhoto.enableValidation();
-
-// formPhoto.addEventListener('submit', handlePhotoFormSubmit);
-// photoClose.addEventListener('click', () => { closePopup(popupPhoto); });
-// modalPhotoClose.addEventListener('click', () => { closePopup(modalImage); });
-
-// export { openPopup, popupModal };

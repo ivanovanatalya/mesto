@@ -1,8 +1,8 @@
 export default class Section {
-  constructor(dataObj , selector) { //TODO два параметра
-    this._renderer = dataObj.renderer;
+  constructor({ renderer, items }, selector) {
+    this._renderer = renderer;
     this._container = document.querySelector(selector);
-    this._items = dataObj.items;
+    this._items = items;
   }
 
   addItems() {
