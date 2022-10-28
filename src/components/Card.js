@@ -1,26 +1,27 @@
-import { openPopup, popupModal } from '../pages/index.js';
+// import { openPopup, popupModal } from '../pages/index.js';
 
 
 class Card {
-  constructor(data, selector) {
+  constructor(data, selector, handleCardClick) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = selector;
-    this._modalSrc = popupModal.src;
-    this._modalTitle = popupModal.title;
-    this._popupModal = popupModal.value;
+    // this._modalSrc = popupModal.src;
+    // this._modalTitle = popupModal.title;
+    // this._popupModal = popupModal.value;
+    this._handleCardClick = handleCardClick.bind(handleCardClick.__proto__);
   }
 
   _getTemplate() {
     return document.querySelector(this._cardSelector).content.querySelector('.photo-grid__item').cloneNode(true);
   };
 
-  _handleCardModal() {
-    openPopup(this._popupModal);
-    this._modalTitle.textContent = this._name;
-    this._modalSrc.alt = this._name;
-    this._modalSrc.src = this._link;
-  }
+  // _handleCardModal() {
+  //   openPopup(this._popupModal);
+  //   this._modalTitle.textContent = this._name;
+  //   this._modalSrc.alt = this._name;
+  //   this._modalSrc.src = this._link;
+  // }
 
   _handleCardLike() {
     this._elementLike.classList.toggle('photo-grid__like_active');
@@ -32,8 +33,10 @@ class Card {
   }
 
   _setEventListeners() {
+    console.log('set')
     this._elementPic.addEventListener('click', () => {
-      this._handleCardModal();
+      console.log('c')
+      this._handleCardClick({ name: this._name, link: this._link }).bind(handleCardClick);
     });
 
     this._elementLike.addEventListener('click', () => {
