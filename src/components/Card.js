@@ -1,6 +1,3 @@
-// import { openPopup, popupModal } from '../pages/index.js';
-
-
 class Card {
   constructor(data, selector, handleCardClick) {
     this._name = data.name;
@@ -15,13 +12,6 @@ class Card {
   _getTemplate() {
     return document.querySelector(this._cardSelector).content.querySelector('.photo-grid__item').cloneNode(true);
   };
-
-  // _handleCardModal() {
-  //   openPopup(this._popupModal);
-  //   this._modalTitle.textContent = this._name;
-  //   this._modalSrc.alt = this._name;
-  //   this._modalSrc.src = this._link;
-  // }
 
   _handleCardLike() {
     this._elementLike.classList.toggle('photo-grid__like_active');
