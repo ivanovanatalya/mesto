@@ -1,38 +1,26 @@
 import './index.css'; // добавьте импорт главного файла стилей
 import Card from '../components/Card.js';
 import FormValidator from '../components/FormValidator.js';
-import initialCards from '../components/initial-cards.js';
+import initialCards from '../common/initial-cards.js';
 import Section from "../components/Section.js";
-import Popup from '../components/Popup';
 import PopupWithImage from '../components/PopupWithImage';
 import PopupWithForm from '../components/PopupWithForm';
 import UserInfo from '../components/UserInfo';
 
-// button
-const buttonEdit = document.querySelector('.profile__button-edit');
-const buttonAdd = document.querySelector('.profile__button-add');
-// photo-grid
-const photoContainerSelector = '.photo-grid';
-const photoContainer = document.querySelector(photoContainerSelector);
-// popup
-const popupProfileSelector = '.popup_type_profile';
-const popupProfile = document.querySelector(popupProfileSelector);
-const popupPhotoSelector = '.popup_type_photo';
-const popupPhoto = document.querySelector(popupPhotoSelector);
-const photoClose = document.querySelector('#popupPhotoClose');
-// form profile
-const formSelector = '.form';
-const form = document.querySelector(formSelector);
-const nameInput = document.querySelector('.form__input_type_name');
-const descriptionInput = document.querySelector('.form__input_type_description');
-const profileNameSelector = '.profile__name';
-const profileDescriptionSelector = '.profile__description';
-
-// //modal
-const modalSrc = document.querySelector('.popup__pic');
-const modalTitle = document.querySelector('.popup__pic-caption');
-const modalImage = document.querySelector('.popup_type_modal');
-const popupImageSelector = '.popup_type_modal';
+import {
+  buttonEdit,
+  buttonAdd,
+  photoContainerSelector,
+  popupProfileSelector,
+  popupProfile,
+  popupPhotoSelector,
+  popupPhoto,
+  nameInput,
+  descriptionInput,
+  profileNameSelector,
+  profileDescriptionSelector,
+  popupImageSelector,
+} from "../common/constants";
 
 const validationSettings = {
   formSelector: '.form',
@@ -64,7 +52,8 @@ section.addItems();
 function handlePhotoFormSubmit(inputValues) {
   const data = { name: inputValues.photo_title, link: inputValues.photo_link };
   const newCard = createCard(data);
-  photoContainer.prepend(newCard);
+  // photoContainer.prepend(newCard);
+  section.addItem(newCard);
 }
 
 function handleFormSubmit(inputValues) {

@@ -3,7 +3,7 @@ class Card {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = selector;
-    this._handleCardClick = handleCardClick.bind(handleCardClick.__proto__);
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -15,8 +15,8 @@ class Card {
   }
 
   _handleCardDelete() {
-    this._element = null;
     this._element.remove();
+    this._element = null;
   }
 
   _setEventListeners() {
