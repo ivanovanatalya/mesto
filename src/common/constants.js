@@ -9,6 +9,7 @@ export const popupProfileSelector = '.popup_type_profile';
 export const popupProfile = document.querySelector(popupProfileSelector);
 export const popupPhotoSelector = '.popup_type_photo';
 export const popupPhoto = document.querySelector(popupPhotoSelector);
+export const popupConfirmSelector = '.popup_type_confirm';
 
 // form profile
 

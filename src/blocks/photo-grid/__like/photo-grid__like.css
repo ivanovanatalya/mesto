@@ -1,6 +1,5 @@
 .photo-grid__like {
   transition: opacity 0.3s ease-in-out;
-  margin-right: 21px;
   width: 26px;
   height: 19px;
   background: url('../../../images/photo-grid__like.svg') center no-repeat;

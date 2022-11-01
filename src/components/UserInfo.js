@@ -12,4 +12,6 @@ export default class UserInfo {
     this._userName.innerHTML = userName;
     this._userInfo.innerHTML = userInfo;
   }
+
+  // setAvatar()
 }

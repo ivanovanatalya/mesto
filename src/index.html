@@ -71,6 +71,17 @@
     </div>
   </div>
 
+  <!--попап delete фото-->
+  <div class="popup popup_type_confirm">
+    <div class="popup__container">
+      <button type="button" class="popup__close" aria-label="кнопка Закрыть" id="popupPhotoClose">Закрыть</button>
+      <form action="/" method="delete" name="deletephoto" class="form form_type_photo" novalidate>
+        <h2 class="form__title">Новое место</h2>
+        <button type="submit" class="form__submit" id="createPhoto">Yes</button>
+      </form>
+    </div>
+  </div>
+
   <!--модальное окно карточки-->
   <div class="popup popup_type_modal">
     <div class="popup__container">
@@ -86,7 +97,10 @@
       <img src="/" alt="" class="photo-grid__pic">
       <div class="photo-grid__item-description">
         <h2 class="photo-grid__title"></h2>
-        <button type="button" class="photo-grid__like">Нравится</button>
+        <div class="photo-grid__like-container">
+          <button type="button" class="photo-grid__like">Нравится</button>
+          <div class="photo-grid__like-counter"></div>
+        </div>
       </div>
     </li>
   </template>
