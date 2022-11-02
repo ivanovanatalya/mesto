@@ -1,51 +1,61 @@
+import { api_id } from "../common/constants";
+
 class Card {
-  constructor(data, selector, handleCardClick, handleCardDelete) {
-    this._id = data._id || '';
+  constructor(data, selector, handleCardClick, handleCardDelete, handleCardLikes) {
+    this._id = data._id;
+    this._ownerId = data.owner._id;
     this._name = data.name;
     this._link = data.link;
-    this._likeCounter = data.likes?.length || 0;
+    this._likeCounter = data.likes.length;
     this._cardSelector = selector;
     this._handleCardClick = handleCardClick;
-    this._handleCardDelete = handleCardDelete;
+    this._handleCardLikes = handleCardLikes;
+    this._handleConfirmDelete = handleCardDelete;
   }
 
   _getTemplate() {
     return document.querySelector(this._cardSelector).content.querySelector('.photo-grid__item').cloneNode(true);
   };
 
-  _handleCardLike() {
+  _handleLikeState(likesCount) {
     this._elementLike.classList.toggle('photo-grid__like_active');
+    this._elementLikeCounter.innerHTML = likesCount;
   }
 
-  // _handleCardDelete() {
-
-  //   this._element.remove();
-  //   this._element = null;
-  // }
+  _handleCardDelete() {
+    this._element.remove();
+    this._element = null;
+  }
 
   _setEventListeners() {
     this._elementPic.addEventListener('click', () => {
       this._handleCardClick({ name: this._name, link: this._link });
     });
 
-    this._elementLike.addEventListener('click', () => {
-      this._handleCardLike();
+    this._elementLike.addEventListener('click', (e) => {
+      const isLiked = !e.target.classList.contains('photo-grid__like_active');
+      this._handleCardLikes({ id: this._id, isLiked, setLike: this._handleLikeState.bind(this) });
     });
 
-    this._element.querySelector('.photo-grid__delete').addEventListener('click', () => {
-      this._handleCardDelete();
+    this._elementRemove.addEventListener('click', () => {
+      this._handleConfirmDelete({ id: this._id, removeCard: this._handleCardDelete.bind(this) });
     });
   }
 
   generateCard() {
     this._element = this._getTemplate();
+    this._elementRemove = this._element.querySelector('.photo-grid__delete');
+    if (this._ownerId !== api_id) {
+      this._elementRemove.hidden = true;
+    }
     this._elementPic = this._element.querySelector('.photo-grid__pic');
     this._elementPic.src = this._link;
     this._elementPic.alt = this._name;
     this._elementLike = this._element.querySelector('.photo-grid__like');
     this._elementLikeCounter = this._element.querySelector('.photo-grid__like-counter');
     this._elementLikeCounter.innerHTML = this._likeCounter;
-    this._element.querySelector('.photo-grid__title').textContent = this._name;
+    this._elementTitle = this._element.querySelector('.photo-grid__title')
+    this._elementTitle.textContent = this._name;
     this._setEventListeners();
     return this._element;
   }

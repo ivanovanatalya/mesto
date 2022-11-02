@@ -52,7 +52,7 @@ class Api {
       });
   }
 
-  addCard(name, link) {
+  addCard({ name, link }) {
     return fetch(`${this._url}/cards`, {
       method: 'POST',
       headers: {
@@ -75,9 +75,7 @@ class Api {
       method: 'DELETE',
       headers: {
         authorization: this._authToken,
-        'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ name, link })
     })
       .then(res => {
         if (res.ok) {
@@ -93,9 +91,7 @@ class Api {
       method: 'PUT',
       headers: {
         authorization: this._authToken,
-        'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ name, link })
     })
       .then(res => {
         if (res.ok) {
@@ -112,9 +108,7 @@ class Api {
       method: 'DELETE',
       headers: {
         authorization: this._authToken,
-        'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ name, link })
     })
       .then(res => {
         if (res.ok) {
@@ -128,7 +122,7 @@ class Api {
 
   editAvatar(avatar) {
     return fetch(`${this._url}/users/me/avatar`, {
-      method: 'DELETE',
+      method: 'PATCH',
       headers: {
         authorization: this._authToken,
         'Content-Type': 'application/json'

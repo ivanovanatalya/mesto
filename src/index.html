@@ -14,10 +14,12 @@
   </header>
   <main class="content">
     <section class="profile">
-      <img src="<%=require('./images/Kusto.jpg')%>"  alt="Аватарка профиля" class="profile__avatar">
+      <div class="profile__avatar-container">
+        <img src=""  alt="Аватарка профиля" class="profile__avatar">
+      </div>
       <div class="profile__info">
-        <h1 class="profile__name">Жак-Ив Кусто</h1>
-        <p class="profile__description">Исследователь океана</p>
+        <h1 class="profile__name"></h1>
+        <p class="profile__description"></p>
         <button type="button" class="profile__button-edit" aria-label="кнопка Редактировать">Редактировать</button>
       </div>
       <button type="button" class="profile__button-add " aria-label="кнопка Добавить">Добавить фотографию</button>
@@ -63,7 +65,7 @@
           <span class="form__input-error-message"></span>
         </div>
         <div class="form__input-wrapper">
-          <input type="url" placeholder="Ссылка на картинку" class="form__input form__input_type_src" id="form__input_type_src" name="photo_link" required>
+          <input type="url" placeholder="Ссылка на картинку" class="form__input form__input_type_src" id="form__input_image_src" name="photo_link" required>
           <span class="form__input-error-message"></span>
         </div>
         <button type="submit" class="form__submit form__submit_disabled" id="createPhoto">Создать</button>
@@ -71,13 +73,28 @@
     </div>
   </div>
 
-  <!--попап delete фото-->
+  <!--попап удаления фото-->
   <div class="popup popup_type_confirm">
     <div class="popup__container">
-      <button type="button" class="popup__close" aria-label="кнопка Закрыть" id="popupPhotoClose">Закрыть</button>
-      <form action="/" method="delete" name="deletephoto" class="form form_type_photo" novalidate>
-        <h2 class="form__title">Новое место</h2>
-        <button type="submit" class="form__submit" id="createPhoto">Yes</button>
+      <button type="button" class="popup__close" aria-label="кнопка Закрыть" id="popupConfirmClose">Закрыть</button>
+      <form action="/" method="delete" name="deletephoto" class="form form_type_confirm" novalidate>
+        <h2 class="form__title">Вы уверены?</h2>
+        <button type="submit" class="form__submit" id="deletePhoto">Да</button>
+      </form>
+    </div>
+  </div>
+
+  <!--попап изменения аватара-->
+  <div class="popup popup_type_avatar">
+    <div class="popup__container">
+      <button type="button" class="popup__close" aria-label="кнопка Закрыть" id="popupAvatarClose">Закрыть</button>
+      <form action="/" method="patch" name="editavatar" class="form form_type_avatar" novalidate>
+        <h2 class="form__title">Обновить аватар</h2>
+        <div class="form__input-wrapper">
+          <input type="url" placeholder="Ссылка на аватар" class="form__input form__input_type_src" id="form__input_avatar_src" name="avatar_link" required>
+          <span class="form__input-error-message"></span>
+        </div>
+        <button type="submit" class="form__submit" id="updateAvatar">Сохранить</button>
       </form>
     </div>
   </div>
