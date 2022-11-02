@@ -1,6 +1,6 @@
 # Сервис [Mesto](https://ivanovanatalya.github.io/mesto/index.html)
 ---
-**Проектная работа 7**
+**Проектная работа 9**
 
 Выполнена в рамках обучения на курсе [веб-разработчик Яндекс.Практикум](https://practicum.yandex.ru/web/?utm_source=practicum&utm_medium=email&utm_campaign=sendr-597315).
 
@@ -16,6 +16,7 @@
 * улучшена UX при работе с попапами
 * применена работа с модулями в JavaScript
 * добавлен Webpack
+* добавлено подключение к серверу
 
 **Figma**
 * [Макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
