@@ -1,4 +1,4 @@
-# Сервис [Mesto](https://ivanovanatalya.github.io/mesto/index.html)
+# Сервис [Mesto](https://ivanovanatalya.github.io/mesto)
 ---
 **Проектная работа 9**
 
