@@ -110,7 +110,6 @@ function handleCardLikes(data) {
   if (isLiked) {
     api.setCardLike(id)
     .then((res) => {
-      console.log(res.likes)
       setLike(res.likes.length);
     })
     .catch((err) => {
@@ -120,7 +119,6 @@ function handleCardLikes(data) {
   } else {
     api.deleteCardLike(id)
     .then((res) => {
-      console.log(res.likes)
       setLike(res.likes.length);
     })
     .catch((err) => {
