@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/ivanovanatalya/mesto/issues"
   },
-  "homepage": "https://ivanovanatalya.github.io/mesto",
+  "homepage": "https://github.com/ivanovanatalya/mesto#readme",
   "dependencies": {
     "core-js": "^3.25.5"
   },
@@ -33,6 +33,9 @@
     "gh-pages": "^4.0.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.1",
-    "postcss-loader": "^7.0.1"
+    "postcss-loader": "^7.0.1",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1",
+    "webpack": "^5.74.0"
   }
 }
