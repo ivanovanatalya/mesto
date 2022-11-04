@@ -1,5 +1,4 @@
 export const api_token = '504d9f32-34cb-46c5-b423-b7576f09dbc5';
-export const api_id = '3500d872f3e9e3f47a64d63a';
 // button
 export const buttonEdit = document.querySelector('.profile__button-edit');
 export const buttonAdd = document.querySelector('.profile__button-add');

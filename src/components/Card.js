@@ -1,12 +1,11 @@
-import { api_id } from "../common/constants";
-
 class Card {
-  constructor(data, selector, handleCardClick, handleCardDelete, handleCardLikes) {
-    this._id = data._id;
+  constructor(data, userId, selector, handleCardClick, handleCardDelete, handleCardLikes) {
+    this._userId = userId;
+    this._cardId = data._id;
     this._ownerId = data.owner._id;
     this._name = data.name;
     this._link = data.link;
-    this._likeCounter = data.likes.length;
+    this._likes = data.likes;
     this._cardSelector = selector;
     this._handleCardClick = handleCardClick;
     this._handleCardLikes = handleCardLikes;
@@ -34,18 +33,18 @@ class Card {
 
     this._elementLike.addEventListener('click', (e) => {
       const isLiked = !e.target.classList.contains('photo-grid__like_active');
-      this._handleCardLikes({ id: this._id, isLiked, setLike: this._handleLikeState.bind(this) });
+      this._handleCardLikes({ id: this._cardId, isLiked, setLike: this._handleLikeState.bind(this) });
     });
 
     this._elementRemove.addEventListener('click', () => {
-      this._handleConfirmDelete({ id: this._id, removeCard: this._handleCardDelete.bind(this) });
+      this._handleConfirmDelete({ id: this._cardId, removeCard: this._handleCardDelete.bind(this) });
     });
   }
 
   generateCard() {
     this._element = this._getTemplate();
     this._elementRemove = this._element.querySelector('.photo-grid__delete');
-    if (this._ownerId !== api_id) {
+    if (this._ownerId !== this?._userId) {
       this._elementRemove.hidden = true;
     }
     this._elementPic = this._element.querySelector('.photo-grid__pic');
@@ -53,7 +52,10 @@ class Card {
     this._elementPic.alt = this._name;
     this._elementLike = this._element.querySelector('.photo-grid__like');
     this._elementLikeCounter = this._element.querySelector('.photo-grid__like-counter');
-    this._elementLikeCounter.innerHTML = this._likeCounter;
+    if (this._likes.find(item => item._id === this._userId)) {
+      this._handleLikeState(this._likes.length);
+    }
+    this._elementLikeCounter.innerHTML = this._likes.length;
     this._elementTitle = this._element.querySelector('.photo-grid__title')
     this._elementTitle.textContent = this._name;
     this._setEventListeners();
